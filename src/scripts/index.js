@@ -1,6 +1,11 @@
 import { fetchProducts } from "../utils/api.js";
 
 document.addEventListener("DOMContentLoaded", loadProducts);
+document.getElementById("addProduct").addEventListener("submit", function (e) {
+  e.preventDefault();
+  addProduct();
+  loadProducts();
+});
 
 // Function to fetch and render products
 async function loadProducts() {
@@ -8,7 +13,13 @@ async function loadProducts() {
   productsContainer.innerHTML = "<p>Loading products...</p>"; // Temporary message while loading
 
   try {
-    const products = await fetchProducts();
+    // Actual useage
+    //const products = await fetchProducts();
+
+    // Temporary while i don't know how to work with vercel
+    const response = await fetch("https://webshop-2025-be-g7.vercel.app/api/products");
+    const products = await response.json();
+
     productsContainer.innerHTML = ""; // Clear loading text
 
     if (products.length > 0) {
@@ -23,6 +34,31 @@ async function loadProducts() {
     console.error("Error fetching products:", error);
     productsContainer.innerHTML = "<p>Failed to load products.</p>";
   }
+}
+
+async function addProduct() {
+  try {
+    const product = {
+      name: document.getElementById("name").value,
+      price: document.getElementById("price").value,
+      description: document.getElementById("description").value,
+      stock: document.getElementById("stock").value
+    };
+    console.log(product);
+  } catch {
+
+  }
+
+
+  // HAR INGEN ADMIN TOKEN D:
+  const response = await fetch("https://webshop-2025-be-g7.vercel.app/api/products", {
+    method: "POST",
+    Authorization: Bearer, // Här ska admin token ligga
+    body: JSON.stringify(product),
+  });
+
+  const data = await response.json();
+  console.log("Added Product:", data);
 }
 
 // Function to create an individual product card
