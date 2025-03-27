@@ -11,33 +11,84 @@ body {
 }
 
 /* Header */
-.site-header {
-  background: #eaeaea;
-  padding: 1rem;
-}
-
-.site-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-}
-
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
+* {
+  margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: black;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f3f3;
 }
+
+.top-info-bar {
+  height: 24px;
+  background-color: #0645AD; /* Mörk blå – valde valfri färg tillfäligt */
+}
+
+header {
+  background-color: white;
+  padding: 10px 40px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.header-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-weight: bold;
+  font-size: 1.5em;
+  color: #007BFF;
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+/* Sökfält */
+.search-container {
+  position: relative; /* Gör att vi kan placera ikonen relativt till input-fältet */
+}
+
+.search-container input {
+  width: 500px;
+  padding: 10px 15px;
+  border-radius: 25px;
+  border: 1px solid #ccc;
+  outline: none;
+  padding-left: 35px; /* Gör plats för ikonen på vänster sida */
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%); /* Centrerar ikonen vertikalt */
+  color: #007BFF; /* Här kan jag ändra färgen på ikonen om nödvändigt */
+}
+
+/* Ikoner */
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.icon-link {
+  color: #333;
+  text-decoration: none;
+  font-size: 0.95em;
+}
+
+.icon-link i {
+  margin-right: 5px;
+}
+
 
 /* Main Content */
 .main-content {
