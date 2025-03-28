@@ -13,13 +13,7 @@ async function loadProducts() {
   productsContainer.innerHTML = "<p>Loading products...</p>"; // Temporary message while loading
 
   try {
-    // Actual useage
-    //const products = await fetchProducts();
-
-    // Temporary while i don't know how to work with vercel
-    const response = await fetch("https://webshop-2025-be-g7.vercel.app/api/products");
-    const products = await response.json();
-
+    const products = await fetchProducts();
     productsContainer.innerHTML = ""; // Clear loading text
 
     if (products.length > 0) {
