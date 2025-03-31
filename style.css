@@ -48,6 +48,25 @@ body {
 
 /* Product Add Form */
 
+#addProduct {
+  display: grid;
+  gap: 10px;
+  margin: 10px;
+  text-align: center;
+  justify-items: center;
+}
+
+#addProduct .prodInp {
+  width: 30%;
+}
+
+#addProduct #description {
+  overflow-y: auto;
+  resize: none;
+  min-height: 120px;
+  width: 40%;
+}
+
 /* Products */
 #products {
   display: grid;
