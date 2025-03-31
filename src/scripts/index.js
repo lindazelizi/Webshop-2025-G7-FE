@@ -1,4 +1,4 @@
-import { fetchProducts } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
 
 document.addEventListener("DOMContentLoaded", loadProducts);
 document.getElementById("addProduct").addEventListener("submit", function (e) {
@@ -39,32 +39,35 @@ async function addProduct() {
       stock: document.getElementById("stock").value
     };
     console.log(product);
-  } catch {
-
+    // HAR INGEN ADMIN TOKEN D:
+    addProducts()
+  } catch (error) {
+    console.error("Error adding product:", error)
   }
-
-
-  // HAR INGEN ADMIN TOKEN D:
-  const response = await fetch("https://webshop-2025-be-g7.vercel.app/api/products", {
-    method: "POST",
-    Authorization: Bearer, // Här ska admin token ligga
-    body: JSON.stringify(product),
-  });
-
-  const data = await response.json();
-  console.log("Added Product:", data);
 }
 
 // Function to create an individual product card
 function createProductCard(product) {
+
   const element = document.createElement("div");
   element.className = "product-card";
-
-  element.innerHTML = `
+  // temp admin var
+  let admin = true;
+  // Temp ifall admin (ändra senare)
+  if (admin) {
+    element.innerHTML = `
     <h3>${product.name}</h3>
     <p>$${product.price.toFixed(2)}</p>
     <button class="add-to-cart-btn">Add to Cart</button>
   `;
+  } else {
+    element.innerHTML = `
+    <h3>${product.name}</h3>
+    <p>$${product.price.toFixed(2)}</p>
+    <button class="add-to-cart-btn">Add to Cart</button>
+  `;
+  }
+
 
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     alert(`Adding ${product.name} to cart\nFunctionality not implemented yet`);

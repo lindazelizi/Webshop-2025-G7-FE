@@ -46,25 +46,40 @@ body {
   margin: auto;
 }
 
+.main-content h1 {
+  text-align: center;
+}
+
 /* Product Add Form */
+
+
 
 #addProduct {
   display: grid;
+  width: 60%;
+  border: solid 2px #b34040;
   gap: 10px;
-  margin: 10px;
+  padding: 10px;
+  margin: auto;
+  margin-bottom: 10px;
   text-align: center;
   justify-items: center;
 }
 
 #addProduct .prodInp {
-  width: 30%;
+  width: 80%;
+  text-align: center;
 }
 
 #addProduct #description {
   overflow-y: auto;
   resize: none;
   min-height: 120px;
-  width: 40%;
+  width: 90%;
+}
+
+#addProduct button {
+  width: ;
 }
 
 /* Products */
@@ -75,7 +90,7 @@ body {
 }
 
 .product-card {
-  border: 1px solid #ddd;
+  border: 1px solid #b34040;
   padding: 1rem;
   text-align: center;
 }
