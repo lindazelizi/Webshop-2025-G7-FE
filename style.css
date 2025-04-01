@@ -58,6 +58,7 @@ body {
   display: grid;
   width: 60%;
   border: solid 2px #b34040;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   gap: 10px;
   padding: 10px;
   margin: auto;
@@ -79,7 +80,15 @@ body {
 }
 
 #addProduct button {
-  width: ;
+  background: linear-gradient(135deg, #ff5f5f, #ff8484); 
+  border: solid 0.5px rgb(0, 0, 0);
+  padding: 12px 24px;
+  font-size: 16px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 /* Products */
@@ -91,6 +100,7 @@ body {
 
 .product-card {
   border: 1px solid #b34040;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   padding: 1rem;
   text-align: center;
 }

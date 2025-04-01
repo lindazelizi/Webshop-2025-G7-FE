@@ -51,24 +51,11 @@ function createProductCard(product) {
 
   const element = document.createElement("div");
   element.className = "product-card";
-  // temp admin var
-  let admin = true;
-  // Temp ifall admin (ändra senare)
-  if (admin) {
-    element.innerHTML = `
-    <h3>${product.name}</h3>
-    <p>$${product.price.toFixed(2)}</p>
-    <button class="add-to-cart-btn">Add to Cart</button>
+  element.innerHTML = `
+  <h3>${product.name}</h3>
+  <p>$${product.price.toFixed(2)}</p>
+  <button class="add-to-cart-btn">Add to Cart</button>
   `;
-  } else {
-    element.innerHTML = `
-    <h3>${product.name}</h3>
-    <p>$${product.price.toFixed(2)}</p>
-    <button class="add-to-cart-btn">Add to Cart</button>
-  `;
-  }
-
-
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     alert(`Adding ${product.name} to cart\nFunctionality not implemented yet`);
   });
