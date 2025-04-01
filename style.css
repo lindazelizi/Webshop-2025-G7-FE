@@ -186,7 +186,7 @@ header {
   color: #FFFFFF;
   padding: 30px 20px;
   width: 100%;
-  position: fixed;
+  position: bottem;
   bottom: 0;
   left: 0;
 }
