@@ -1,6 +1,11 @@
-import { fetchProducts } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
 
 document.addEventListener("DOMContentLoaded", loadProducts);
+document.getElementById("addProduct").addEventListener("submit", function (e) {
+  e.preventDefault();
+  addProduct();
+  loadProducts();
+});
 
 // Function to fetch and render products
 async function loadProducts() {
@@ -25,17 +30,32 @@ async function loadProducts() {
   }
 }
 
+async function addProduct() {
+  try {
+    const product = {
+      name: document.getElementById("name").value,
+      price: document.getElementById("price").value,
+      description: document.getElementById("description").value,
+      stock: document.getElementById("stock").value
+    };
+    console.log(product);
+    // HAR INGEN ADMIN TOKEN D:
+    addProducts()
+  } catch (error) {
+    console.error("Error adding product:", error)
+  }
+}
+
 // Function to create an individual product card
 function createProductCard(product) {
+
   const element = document.createElement("div");
   element.className = "product-card";
-
   element.innerHTML = `
-    <h3>${product.name}</h3>
-    <p>$${product.price.toFixed(2)}</p>
-    <button class="add-to-cart-btn">Add to Cart</button>
+  <h3>${product.name}</h3>
+  <p>$${product.price.toFixed(2)}</p>
+  <button class="add-to-cart-btn">Add to Cart</button>
   `;
-
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     alert(`Adding ${product.name} to cart\nFunctionality not implemented yet`);
   });
