@@ -3,16 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>Logga in - Hakim Livs</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- MAIN CONTENT -->
+  <div class="login-container">
     <h1>Logga in</h1>
-  <p>Här kommer inloggningssidan att vara. Detta är en placeholder.</p>
-  <a href="index.html">Tillbaka till startsidan</a>
+    
+    <form id="loginForm">
+      <label for="email">Användarnamn:</label>
+      <input type="text" id="email" required>
 
+      <label for="password">Lösenord:</label>
+      <input type="password" id="password" required>
 
-    <!-- PAGE-SPECIFIC JAVASCRIPT -->
-    <script type="module" src="./src/scripts/login.js"></script>
-  </body>
+      <button type="submit">Logga in</button>
+    </form>
+
+    <a href="register.html" class="register-link">Skapa konto</a>
+  </div>
+
+  <script type="module" src="./src/scripts/login.js"></script>
+</body>
 </html>
+
