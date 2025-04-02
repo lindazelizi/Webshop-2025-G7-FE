@@ -24,7 +24,7 @@ body {
 
 .top-info-bar {
   height: 24px;
-  background-color: #0645AD; /* Mörk blå – valde valfri färg tillfäligt */
+  background-color: #C8102E; /* Röd färg */
 }
 
 header {
@@ -45,7 +45,7 @@ header {
 .logo {
   font-weight: bold;
   font-size: 1.5em;
-  color: #007BFF;
+  color: #C8102E; /* Röd färg */
   margin-right: 20px;
   white-space: nowrap;
 }
@@ -59,17 +59,17 @@ header {
   width: 500px;
   padding: 10px 15px;
   border-radius: 25px;
-  border: 1px solid #ccc;
+  border: 1px solid #C8102E; /* Röd kant */
   outline: none;
-  padding-left: 35px; /* Gör plats för ikonen på vänster sida */
+  padding-left: 35px;
 }
 
 .search-icon {
   position: absolute;
   left: 10px;
   top: 50%;
-  transform: translateY(-50%); /* Centrerar ikonen vertikalt */
-  color: #007BFF; /* Här kan jag ändra färgen på ikonen om nödvändigt */
+  transform: translateY(-50%);
+  color: #C8102E; /* Röd färg */
 }
 
 /* Ikoner */
@@ -164,20 +164,71 @@ header {
 }
 
 /* Login */
-.login-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.form-group {
-  display: flex;
-  flex-direction: column;
+.login-container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #C8102E; /* Ändrat till röd */
 }
 
-.form-group input {
-  padding: 0.5rem;
-  border: 1px solid #ddd;
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.login-container button {
+  width: 100%;
+  padding: 10px;
+  background-color: #C8102E; /* Ändrat till röd */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-container button:hover {
+  background-color: #a20c21; /* En mörkare röd ton vid hover */
+}
+
+/* Ändra länkfärg till röd */
+.login-container .register-link {
+  display: block;
+  text-align: center;
+  margin-top: 10px;
+  color: #C8102E; /* Ändrat till röd */
+  text-decoration: none;
+}
+
+.login-container .register-link:hover {
+  text-decoration: underline;
+}
+
+.login-container .register-button {
+  background-color: #28a745;
+  margin-top: 10px;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
 }
 
 /* Footer */
