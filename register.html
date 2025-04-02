@@ -1,12 +1,104 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Skapa konto - Hakim Livs</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skapa Konto</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Skapa konto</h1>
-  <p>Här kommer registreringsformuläret ligga (sköts av någon annan).</p>
-  <a href="login.html">Tillbaka till inloggning</a>
+
+    <header>
+        <div class="header-inner">
+          <div class="logo">Hakim Livs</div>
+          
+          <div class="search-container">
+            <input type="text" placeholder="Sök..." />
+            <i class="fas fa-search search-icon"></i> 
+          </div>
+          
+          <div class="header-icons">
+            <!-- Länkar Logga in till login.html -->
+            <a href="login.html" class="icon-link">
+              <i class="fas fa-user"></i> Logga in
+            </a>
+            
+            <!-- Länkar Kundvagn till cart.html -->
+            <a href="cart.html" class="icon-link">
+              <i class="fas fa-shopping-bag"></i> 0 kr
+            </a>
+          </div>
+        </div>
+      </header>
+
+  <div class="container">
+    <form action="/registrera" method="post">
+      <h1>Skapa Konto</h1>
+      <hr>
+
+      <label for="email"><b>E-postadress</b></label>
+      <input type="email" placeholder="Ange din e-postadress" name="email" id="email" required>
+
+      <label for="psw"><b>Lösenord</b></label>
+      <input type="password" placeholder="Ange ditt lösenord" name="psw" id="psw" required>
+
+      <label for="psw-repeat"><b>Upprepa Lösenord</b></label>
+      <input type="password" placeholder="Upprepa ditt lösenord" name="psw-repeat" id="psw-repeat" required>
+
+      <label>
+        <input type="checkbox" name="remember" style="margin-bottom:15px"> Kom ihåg mig
+      </label>
+
+      <p>Genom att skapa ett konto godkänner du våra <a href="#" style="color:dodgerblue">Användarvillkor</a>.</p>
+
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Avbryt</button>
+        <button type="submit" class="signupbtn">Registrera</button>
+      </div>
+    </form>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-container">
+   
+      <!-- LÄNKARNA ÄR TOMMA-->
+      <div class="footer-section">
+        <h3>Hakim Livs made simple</h3>
+        <a href="#">Så funkar Hakim Livs</a>
+        <a href="#">Klimatpåverkan</a>
+        <a href="#">Leverans &amp; frakt</a>
+        <a href="#">Vanliga frågor och svar</a>
+      </div>
+     
+      <div class="footer-section">
+        <h3>The fine print</h3>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Integritetspolicy</a>
+        <a href="#">Allmänna villkor</a>
+        <a href="#">Cookie-inställningar</a>
+      </div>
+      
+      <div class="footer-section">
+        <h3>Join Hakim Livs</h3>
+        <a href="#">Bli leverantör</a>
+        <a href="#">Jobba hos oss</a>
+        <a href="#">Pressmeddelanden</a>
+        <a href="#">Nyhetsbrev</a>
+      </div>
+    </div>
+    
+    <div class ="footer-icon">
+      <img src="https://cdn-icons-png.freepik.com/512/3095/3095583.png" alt="Kontakt" width="50px" height="50px" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
+      <a href="#">Kontakt</a>
+      <img src="https://cdn-icons-png.freepik.com/512/11675/11675289.png" alt="Kundservice" width="50px" height="50px" style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
+      <a href="#">Kundservice</a>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>© 2025 Hakim Livs. Alla rättigheter förbehållna.</p>
+    </div>
+
+  </footer>
+
 </body>
 </html>
