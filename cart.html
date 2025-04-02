@@ -9,12 +9,44 @@
 </head>
 
 <body>
-  <h1>Kundvagn</h1>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">Hakim Livs</div>
+
+      <div class="search-container">
+        <input type="text" placeholder="Sök..." />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+
+      <div class="header-icons">
+        <!-- Länkar Logga in till login.html -->
+        <a href="login.html" class="icon-link">
+          <i class="fas fa-user"></i> Logga in
+        </a>
+
+        <!-- Länkar Kundvagn till cart.html -->
+        <a href="cart.html" class="icon-link">
+          <i class="fas fa-shopping-bag"></i>
+          <p id="cartBalance">$0</p>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <h1 class="cartTitle">Kundvagn</h1>
   <div id="kundvagnen">
+    <div class="cart-layout">
+      <h2 class="item-name" id="item-name-lo">Produkt</h2>
+      <h3 class="item-price">Price/st</h3>
+      <h3 class="item-quantity">Amount</h3>
+      <h3 class="item-price-sum">Sum</h3>
+    </div>
     <div id="cart-items"></div>
   </div>
   <a href="index.html">Tillbaka till startsidan</a>
-  <script type="module" src="./src/scripts/cart.js"></script>
+  <script src="./src/scripts/cart.js"></script>
 </body>
 
 </html>

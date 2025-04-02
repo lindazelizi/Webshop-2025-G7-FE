@@ -268,8 +268,39 @@ header {
 
 /* Cart styling */
 
-#kundvagnen {
-  background-color: rgb(180, 180, 180);
+.cart-layout {
+  width: 80%;
+  display: grid;
+  grid-template-columns: 50% 10% 10% 10%;
+  justify-items: right;
+  margin: auto;
+  gap: 50px;
+  padding: 10px;
+}
+
+.item-name {
+  justify-self: left;
+}
+
+.item-price {
+
+}
+
+.item-quantity {
+  display: flex;
+  gap: 10px;
+}
+
+.item-price-sum {
+
+}
+
+.cartTitle {
+  text-align: center;
+}
+
+.item-card {
+  display: flex;
 }
 
 /* Responsiv anpassning */

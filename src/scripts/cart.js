@@ -25,26 +25,46 @@ function loadCartItems() {
 function createCartCard(item) {
     const element = document.createElement("div");
     const product = item.product;
-    console.log(product)
     const quantity = item.quantity;
+    const productSum = product.price * quantity;
+    const id = product._id;
     element.className = "item-card";
     element.innerHTML = `
-    <div id="item-info">
-        <h3>${product.name}</h3>
-        <h3>${product.price} kr</h3>
+    <div class="cart-layout">
+        <h3 class="item-name">${product.name}</h3>
+        <h3 class="item-price">$${product.price}</h3>
+        <div class="item-quantity">
+            <button class="decrease">-</button>
+            <h3 class="item-quantity">${quantity} st</h3>
+            <button class="increase">+</button>
+        </div>
+        <h3 class="item-price-sum">$${productSum}</h3>
     </div>
-  
-  <div id="item-quantity">
-    <button class="increase" onclick="changeQuantity(${quantity}, -1)">-</button>
-    <h3>${quantity} st</h3>
-    <button class="decrease" onclick="changeQuantity(${quantity}, 1)">+</button>
-  </div>
-  `;
+    `;
+
+    element.querySelector(".decrease").addEventListener("click", () => changeQuantity(id, -1));
+    element.querySelector(".increase").addEventListener("click", () => changeQuantity(id, 1));
 
     return element;
 }
 
-function changeQuantity(quantity, num) {
-    console.log(quantity)
-    console.log(sum)
+function changeQuantity(id, num) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.forEach((item, index) => {
+        if (item.product._id === id) {
+            item.quantity += num;
+
+            if (item.quantity > item.product.stock) {
+                alert("Sorry, you have reached the max amount of this item. We have no more stock!");
+            } else if (item.quantity < 1) {
+                if (confirm("Do you want to remove this item from your cart?")) {
+                    cart.splice(index, 1);
+                } else {
+                    item.quantity = 1;
+                }
+            }
+        }
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+    loadCartItems();
 }
