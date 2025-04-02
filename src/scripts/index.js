@@ -1,6 +1,13 @@
 import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
+import { cartBalanceUpdate } from "../utils/functions.js";
 
-document.addEventListener("DOMContentLoaded", loadProducts);
+// Runs once site is loaded
+document.addEventListener("DOMContentLoaded", function () {
+  loadProducts();
+  updateCartItems();
+});
+
+// Runs once submit button is pressed
 document.getElementById("addProduct").addEventListener("submit", function (e) {
   e.preventDefault();
   addProduct();
@@ -30,6 +37,25 @@ async function loadProducts() {
   }
 }
 
+
+// Function to create an individual product card
+function createProductCard(product) {
+  const element = document.createElement("div");
+  element.className = "product-card";
+  element.innerHTML = `
+  <h3>${product.name}</h3>
+  <p>$${product.price.toFixed(2)}</p>
+  <button class="add-to-cart-btn">Lägg i varukorg</button>
+  `;
+  element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
+    addToCart(product)
+  });
+
+  return element;
+}
+
+
+// Function to add product into api
 async function addProduct() {
   try {
     const product = {
@@ -39,26 +65,71 @@ async function addProduct() {
       stock: document.getElementById("stock").value
     };
     console.log(product);
-    // HAR INGEN ADMIN TOKEN D:
+    // No admin token currently D:
     addProducts()
   } catch (error) {
     console.error("Error adding product:", error)
   }
 }
 
-// Function to create an individual product card
-function createProductCard(product) {
 
-  const element = document.createElement("div");
-  element.className = "product-card";
-  element.innerHTML = `
-  <h3>${product.name}</h3>
-  <p>$${product.price.toFixed(2)}</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
-  `;
-  element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
-    alert(`Adding ${product.name} to cart\nFunctionality not implemented yet`);
+// Adds product to cart
+function addToCart(product) {
+  // Get data from local storage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  // Check if cart already has product selected
+  const existingProductId = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
+  // If it exists add onto stock
+  if (existingProductId !== -1) {
+    let existingProduct = cart[existingProductId];
+    let updatedQuantity = existingProduct.quantity + 1;
+    // Checks if cart already reached the max stock of the item
+    if (updatedQuantity > product.stock) {
+      alert("You already have all the stock in your cart");
+      existingProduct.quantity = product.stock;
+    } else {
+      existingProduct.quantity = updatedQuantity;
+    }
+    cart[existingProductId] = existingProduct;
+  } else {
+    // If its the first one, push product into cart
+    cart.push({
+      product: product,
+      quantity: 1
+    });
+  }
+  // Store back into localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartBalanceUpdate();
+}
+
+// Function that updates updated items and removes items that have been removed
+async function updateCartItems() {
+  // Get data from api and local storage
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const products = await fetchProducts();
+
+  // Filter out items that are removed
+  cart = cart.filter(item => {
+    let exists = products.some(product => item.product._id === product._id);
+    // If it exists in api, return item into cart. Else remove it
+    return exists;
   });
 
-  return element;
+  // Updates items that have been changed
+  cart.forEach(item => {
+    products.forEach(product => {
+      // If product and item id match, update the one in cart
+      if (item.product._id === product._id) {
+        item.product = product;
+        // If item quantity in cart is higher than stock, lower them down to current stock
+        if (item.quantity > item.product.stock) {
+          item.quantity = item.product.stock;
+        }
+      }
+    });
+  });
+  // Save to local storage again and update cart visual
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartBalanceUpdate();
 }
