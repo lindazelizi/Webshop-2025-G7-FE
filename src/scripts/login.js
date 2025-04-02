@@ -1,4 +1,6 @@
-import { getBaseUrl } from "./api.js";  
+// src/scripts/login.js
+import { getBaseUrl } from "../utils/api.js";
+
 document.addEventListener("DOMContentLoaded", initLogin);
 
 function initLogin() {
@@ -15,7 +17,7 @@ async function handleLogin() {
   const password = document.getElementById("password").value;
 
   const loginData = {
-    email: email,
+    username: email, // Viktigt: backend vill ha "username", inte "email"
     password: password,
   };
 
@@ -31,17 +33,18 @@ async function handleLogin() {
     if (response.ok) {
       const result = await response.json();
 
-      
+      // Spara användaren i localStorage
       localStorage.setItem("user", JSON.stringify(result));
 
-      
+      // Navigera till startsidan
       window.location.href = "index.html";
     } else {
-      alert("Fel e-post eller lösenord.");
+      alert("Fel användarnamn eller lösenord.");
     }
   } catch (error) {
     console.error("Inloggningsfel:", error);
     alert("Ett tekniskt fel uppstod vid inloggningen.");
   }
 }
+
 
