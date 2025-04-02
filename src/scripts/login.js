@@ -25,7 +25,8 @@ async function handleLogin() {
     const response = await fetch(`${getBaseUrl()}api/auth/login`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
+        "Authorization" : `${token}`
       },
       body: JSON.stringify(loginData),
     });
