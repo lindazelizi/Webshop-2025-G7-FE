@@ -104,8 +104,6 @@ header {
 
 /* Product Add Form */
 
-
-
 #addProduct {
   display: grid;
   width: 60%;
@@ -165,6 +163,7 @@ header {
 }
 
 /* Login */
+
 .login-form {
   display: flex;
   flex-direction: column;
@@ -182,6 +181,7 @@ header {
 }
 
 /* Footer */
+
 .footer {
   background-color: #E2001A;
   color: #FFFFFF;
@@ -257,6 +257,7 @@ header {
 }
 
 /* Copyright-styling */
+
 .footer-bottom {
   text-align: center;
   margin-top: 20px;
@@ -265,7 +266,14 @@ header {
   padding-top: 10px;
 }
 
+/* Cart styling */
+
+#kundvagnen {
+  background-color: rgb(180, 180, 180);
+}
+
 /* Responsiv anpassning */
+
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;

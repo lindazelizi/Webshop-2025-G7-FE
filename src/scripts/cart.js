@@ -35,11 +35,16 @@ function createCartCard(item) {
     </div>
   
   <div id="item-quantity">
-    <button class="increase">+</button>
+    <button class="increase" onclick="changeQuantity{${quantity}, -1}">-</button>
     <h3>${quantity} st</h3>
-    <button class="decrease">-</button>
+    <button class="decrease" onclick="changeQuantity{${quantity}, 1}">+</button>
   </div>
   `;
 
     return element;
+}
+
+function changeQuantity(quantity, num) {
+    console.log(quantity)
+    console.log(sum)
 }
