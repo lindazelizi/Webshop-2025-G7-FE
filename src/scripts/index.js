@@ -1,4 +1,5 @@
 import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
+import { cartBalanceUpdate } from "../utils/functions.js";
 
 // Runs once site is loaded
 document.addEventListener("DOMContentLoaded", function () {
@@ -44,7 +45,7 @@ function createProductCard(product) {
   element.innerHTML = `
   <h3>${product.name}</h3>
   <p>$${product.price.toFixed(2)}</p>
-  <button class="add-to-cart-btn">Add to Cart</button>
+  <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     addToCart(product)
@@ -131,18 +132,4 @@ async function updateCartItems() {
   // Save to local storage again and update cart visual
   localStorage.setItem('cart', JSON.stringify(cart));
   cartBalanceUpdate();
-}
-
-
-// Updates balance of cart to match what's in the cart
-function cartBalanceUpdate() {
-  // Gets data from local storage
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  // Loop that adds the total sum into cartbalance
-  let cartBalance = 0;
-  cart.forEach((item) => {
-    cartBalance += item.product.price * item.quantity;
-  })
-  // Put it back into cartBalance in html with 2 decimals
-  document.getElementById("cartBalance").innerHTML = "$" + cartBalance.toFixed(2);
 }

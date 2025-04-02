@@ -35,18 +35,40 @@
     </div>
   </header>
 
-  <h1 class="cartTitle">Kundvagn</h1>
-  <div id="kundvagnen">
-    <div class="cart-layout">
-      <h2 class="item-name" id="item-name-lo">Produkt</h2>
-      <h3 class="item-price">Price/st</h3>
-      <h3 class="item-quantity">Amount</h3>
-      <h3 class="item-price-sum">Sum</h3>
+
+  <div class="cart-body">
+    <div class="cart-redirect">
+      <a href="index.html">
+        <button class="start-btn">Fortsätt handla</button>
+      </a>
+      <a href="checkout.html">
+        <button class="checkout-btn checkout-small-btn">Till kassan</button>
+      </a>
     </div>
-    <div id="cart-items"></div>
+    <h1 class="cart-title">Din varukorg</h1>
+    <div>
+      <div class="cart-layout">
+        <h3 class="item-name" class="item-name-lo">Varor</h3>
+        <h3 class="item-price">Price/st</h3>
+        <h3 class="item-quantity">Amount</h3>
+        <h3 class="item-price-sum">Sum</h3>
+      </div>
+      <div id="cart-items"></div>
+    </div>
+
+    <div id="checkout">
+      <div class="checkout-payment">
+        <h2>Att betala:</h2>
+        <h2 id="cart-sum-payment"></h2>
+      </div>
+      <a href="checkout.html">
+        <button class="checkout-btn checkout-large-btn">Till kassan</button>
+      </a>
+    </div>
   </div>
-  <a href="index.html">Tillbaka till startsidan</a>
-  <script src="./src/scripts/cart.js"></script>
+
+
+  <script type="module" src="./src/scripts/cart.js"></script>
 </body>
 
 </html>

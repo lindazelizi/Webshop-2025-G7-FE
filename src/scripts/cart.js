@@ -1,11 +1,14 @@
+import { cartBalanceUpdate } from "../utils/functions.js";
+
 document.addEventListener("DOMContentLoaded", function () {
     loadCartItems();
 });
 
 function loadCartItems() {
     const cartContainer = document.getElementById("cart-items");
+    const paymentText = document.getElementById("cart-sum-payment")
     cartContainer.innerHTML = "";
-
+    let itemSum = 0;
     try {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
 
@@ -13,8 +16,11 @@ function loadCartItems() {
             cart.forEach((item) => {
                 const cartCard = createCartCard(item);
                 cartContainer.appendChild(cartCard);
+                itemSum += item.product.price * item.quantity;
             });
         }
+        paymentText.innerHTML = "$" + itemSum.toFixed(2);
+        cartBalanceUpdate();
     }
     catch (error) {
         console.error("Error fetching items:", error);
@@ -38,7 +44,7 @@ function createCartCard(item) {
             <h3 class="item-quantity">${quantity} st</h3>
             <button class="increase">+</button>
         </div>
-        <h3 class="item-price-sum">$${productSum}</h3>
+        <h3 class="item-price-sum">$${productSum.toFixed(2)}</h3>
     </div>
     `;
 
@@ -56,6 +62,7 @@ function changeQuantity(id, num) {
 
             if (item.quantity > item.product.stock) {
                 alert("Sorry, you have reached the max amount of this item. We have no more stock!");
+                item.quantity = item.product.stock;
             } else if (item.quantity < 1) {
                 if (confirm("Do you want to remove this item from your cart?")) {
                     cart.splice(index, 1);
