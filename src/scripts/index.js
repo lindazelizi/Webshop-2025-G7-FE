@@ -1,6 +1,9 @@
 import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
 
-document.addEventListener("DOMContentLoaded", loadProducts);
+document.addEventListener("DOMContentLoaded", function () {
+  loadProducts();
+  cartBalanceUpdate();
+});
 document.getElementById("addProduct").addEventListener("submit", function (e) {
   e.preventDefault();
   addProduct();
@@ -57,8 +60,45 @@ function createProductCard(product) {
   <button class="add-to-cart-btn">Add to Cart</button>
   `;
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
-    alert(`Adding ${product.name} to cart\nFunctionality not implemented yet`);
+    addToCart(product)
   });
 
   return element;
+}
+
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+  const existingProductIndex = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
+
+  if (existingProductIndex !== -1) {
+    let existingProduct = cart[existingProductIndex];
+    let updatedQuantity = existingProduct.quantity + 1;
+
+    if (updatedQuantity > product.stock) {
+      alert("You already have all the stock in your cart");
+      existingProduct.quantity = product.stock;
+    } else {
+      existingProduct.quantity = updatedQuantity;
+    }
+    cart[existingProductIndex] = existingProduct;
+  } else {
+    cart.push({
+      product: product,
+      quantity: 1
+    });
+  }
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartBalanceUpdate();
+}
+
+
+function cartBalanceUpdate() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  let cartBalance = 0;
+  cart.forEach((item) => {
+    cartBalance += item.product.price * item.quantity;
+  })
+  document.getElementById("cartBalance").innerHTML = cartBalance.toFixed(2) + " kr";
 }
