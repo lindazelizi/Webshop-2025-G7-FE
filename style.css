@@ -41,6 +41,13 @@ header {
   justify-content: space-between;
 }
 
+.header-inner a {
+  text-decoration: none;
+}
+.header-inner a:hover{
+  text-decoration: underline;
+}
+
 /* Logo */
 .logo {
   font-weight: bold;
@@ -49,6 +56,8 @@ header {
   margin-right: 20px;
   white-space: nowrap;
 }
+
+
 
 /* Sökfält */
 .search-container {
