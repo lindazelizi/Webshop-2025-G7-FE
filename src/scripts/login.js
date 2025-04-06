@@ -1,7 +1,10 @@
-// src/scripts/login.js
 import { getBaseUrl } from "../utils/api.js";
+import { updateLoginLink } from "../utils/functions.js";
 
-document.addEventListener("DOMContentLoaded", initLogin);
+document.addEventListener("DOMContentLoaded", function () {
+  updateLoginLink(); 
+  initLogin();
+});
 
 function initLogin() {
   const loginForm = document.getElementById("loginForm");
@@ -17,7 +20,7 @@ async function handleLogin() {
   const password = document.getElementById("password").value;
 
   const loginData = {
-    username: email, // Viktigt: backend vill ha "username", inte "email"
+    username: email,
     password: password,
   };
 
@@ -25,18 +28,14 @@ async function handleLogin() {
     const response = await fetch(`${getBaseUrl()}api/auth/login`, {
       method: "POST",
       headers: {
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(loginData),
     });
 
     if (response.ok) {
       const result = await response.json();
-
-      // Spara användaren i localStorage
       localStorage.setItem("user", JSON.stringify(result));
-
-      // Navigera till startsidan
       window.location.href = "index.html";
     } else {
       alert("Fel användarnamn eller lösenord.");
@@ -46,5 +45,3 @@ async function handleLogin() {
     alert("Ett tekniskt fel uppstod vid inloggningen.");
   }
 }
-
-

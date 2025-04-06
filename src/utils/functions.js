@@ -1,12 +1,61 @@
-// Updates balance of cart to match what's in the cart
-export function cartBalanceUpdate() {
-    // Gets data from local storage
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    // Loop that adds the total sum into cartbalance
-    let cartBalance = 0;
-    cart.forEach((item) => {
-        cartBalance += item.product.price * item.quantity;
-    })
-    // Put it back into cartBalance in html with 2 decimals
-    document.getElementById("cartBalance").innerHTML = "$" + cartBalance.toFixed(2);
-}
+export function getBaseUrl() {
+    if (!window.location.href.includes('localhost')) {
+        return "https://webshop-2025-be-g7-temp.vercel.app/";
+    }
+    return "http://localhost:3000/";
+  }
+  
+  export async function fetchProducts(endpoint = "api/products") {
+    const url = `${getBaseUrl()}${endpoint}`;
+    const response = await fetch(url);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+    return [];
+  }
+  
+  export async function addProducts(endpoint = "api/products", product) {
+    const url = `${getBaseUrl()}${endpoint}`;
+    const response = await fetch(url, {
+      method: "POST",
+      body: JSON.stringify(product),
+    });
+  
+    const data = await response.json();
+    console.log("Added Product:", data);
+  }
+  
+  export async function checkAdmin(endpoint = "null") {
+    
+  }
+  
+  export function updateLoginLink() {
+    const user = JSON.parse(localStorage.getItem("user"));
+    const loginLink = document.querySelector(".icon-link[href='login.html']");
+  
+    if (user && loginLink) {
+      loginLink.innerHTML = `<i class="fas fa-sign-out-alt"></i> Logga ut`;
+      loginLink.href = "#";
+  
+      loginLink.addEventListener("click", function (e) {
+        e.preventDefault();
+        localStorage.removeItem("user");
+        window.location.href = "login.html";
+      });
+    }
+  }
+  
+  export function cartBalanceUpdate() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let sum = 0;
+    cart.forEach(item => {
+      sum += item.product.price * item.quantity;
+    });
+  
+    const cartBalanceEl = document.getElementById("cartBalance");
+    if (cartBalanceEl) {
+      cartBalanceEl.textContent = `$${sum.toFixed(2)}`;
+    }
+  }
+  
