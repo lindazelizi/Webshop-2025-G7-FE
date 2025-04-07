@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-  <meta charset="UTF-8" />
-  <title>Logga in - Hakim Livs</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skapa Konto - Hakim Livs</title>
+  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 
@@ -27,27 +28,37 @@
           <i class="fas fa-user"></i> Logga in
         </a>
         <a href="cart.html" class="icon-link">
-          <i class="fas fa-shopping-bag"></i> <p id="cartBalance">$0</p>
+          <i class="fas fa-shopping-bag"></i> 0 kr
         </a>
       </div>
     </div>
   </header>
 
-  <!-- INLOGGNINGSFORMULÄR -->
-  <div class="login-container">
-    <h1>Logga in</h1>
-    
-    <form id="loginForm">
-      <label for="email">Användarnamn:</label>
-      <input type="text" id="email" required>
+  <!-- FORMULÄR FÖR SKAPA KONTO -->
+  <div class="container">
+    <form action="/registrera" method="post">
+      <h1>Skapa Konto</h1>
+      <hr>
 
-      <label for="password">Lösenord:</label>
-      <input type="password" id="password" required>
+      <label for="email"><b>E-postadress</b></label>
+      <input type="email" placeholder="Ange din e-postadress" name="email" id="email" required>
 
-      <button type="submit">Logga in</button>
+      <label for="psw"><b>Lösenord</b></label>
+      <input type="password" placeholder="Ange ditt lösenord" name="psw" id="psw" required>
+
+      <label for="psw-repeat"><b>Upprepa Lösenord</b></label>
+      <input type="password" placeholder="Upprepa ditt lösenord" name="psw-repeat" id="psw-repeat" required>
+
+      <label>
+        <input type="checkbox" name="remember" style="margin-bottom:15px">
+        Genom att skapa ett konto godkänner du våra Användarvillkor
+      </label>
+
+      <div class="clearfix">
+        <button type="button" class="cancelbtn">Avbryt</button>
+        <button type="submit" class="signupbtn">Registrera</button>
+      </div>
     </form>
-
-    <a href="register.html" class="register-link">Skapa konto</a>
   </div>
 
   <!-- FOOTER -->
@@ -92,7 +103,6 @@
     </div>
   </footer>
 
-  <!-- JAVASCRIPT -->
-  <script type="module" src="./src/scripts/login.js"></script>
+  <script type="module" src="./src/scripts/register.js"></script>
 </body>
 </html>

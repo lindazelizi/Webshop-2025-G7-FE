@@ -1,15 +1,25 @@
-import { fetchProducts } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
+import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
 
-document.addEventListener("DOMContentLoaded", loadProducts);
+document.addEventListener("DOMContentLoaded", function () {
+  loadProducts();
+  updateCartItems();
+  updateLoginLink(); 
+});
 
-// Function to fetch and render products
+document.getElementById("addProduct").addEventListener("submit", function (e) {
+  e.preventDefault();
+  addProduct();
+  loadProducts();
+});
+
 async function loadProducts() {
   const productsContainer = document.getElementById("products");
-  productsContainer.innerHTML = "<p>Loading products...</p>"; // Temporary message while loading
+  productsContainer.innerHTML = "<p>Loading products...</p>";
 
   try {
     const products = await fetchProducts();
-    productsContainer.innerHTML = ""; // Clear loading text
+    productsContainer.innerHTML = "";
 
     if (products.length > 0) {
       products.forEach((product) => {
@@ -25,20 +35,81 @@ async function loadProducts() {
   }
 }
 
-// Function to create an individual product card
 function createProductCard(product) {
   const element = document.createElement("div");
   element.className = "product-card";
-
   element.innerHTML = `
     <h3>${product.name}</h3>
     <p>$${product.price.toFixed(2)}</p>
-    <button class="add-to-cart-btn">Add to Cart</button>
+    <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
-
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
-    alert(`Adding ${product.name} to cart\nFunctionality not implemented yet`);
+    addToCart(product);
   });
 
   return element;
+}
+
+async function addProduct() {
+  try {
+    const product = {
+      name: document.getElementById("name").value,
+      price: document.getElementById("price").value,
+      description: document.getElementById("description").value,
+      stock: document.getElementById("stock").value
+    };
+    console.log(product);
+    addProducts();
+  } catch (error) {
+    console.error("Error adding product:", error);
+  }
+}
+
+function addToCart(product) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const existingProductId = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
+
+  if (existingProductId !== -1) {
+    let existingProduct = cart[existingProductId];
+    let updatedQuantity = existingProduct.quantity + 1;
+    if (updatedQuantity > product.stock) {
+      alert("You already have all the stock in your cart");
+      existingProduct.quantity = product.stock;
+    } else {
+      existingProduct.quantity = updatedQuantity;
+    }
+    cart[existingProductId] = existingProduct;
+  } else {
+    cart.push({
+      product: product,
+      quantity: 1
+    });
+  }
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartBalanceUpdate();
+}
+
+async function updateCartItems() {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  const products = await fetchProducts();
+
+  cart = cart.filter(item => {
+    let exists = products.some(product => item.product._id === product._id);
+    return exists;
+  });
+
+  cart.forEach(item => {
+    products.forEach(product => {
+      if (item.product._id === product._id) {
+        item.product = product;
+        if (item.quantity > item.product.stock) {
+          item.quantity = item.product.stock;
+        }
+      }
+    });
+  });
+
+  localStorage.setItem('cart', JSON.stringify(cart));
+  cartBalanceUpdate();
 }

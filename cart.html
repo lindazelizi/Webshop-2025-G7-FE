@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="sv">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Kundvagn - Hakims Livs</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-inner">
+      <div class="logo">Hakim Livs</div>
+
+      <div class="search-container">
+        <input type="text" placeholder="Sök..." />
+        <i class="fas fa-search search-icon"></i>
+      </div>
+
+      <div class="header-icons">
+        <!-- Länkar Logga in till login.html -->
+        <a href="login.html" class="icon-link">
+          <i class="fas fa-user"></i> Logga in
+        </a>
+
+        <!-- Länkar Kundvagn till cart.html -->
+        <a href="cart.html" class="icon-link">
+          <i class="fas fa-shopping-bag"></i>
+          <p id="cartBalance">$0</p>
+        </a>
+      </div>
+    </div>
+  </header>
+
+
+  <div class="cart-body">
+    <div class="cart-redirect">
+      <a href="index.html">
+        <button class="start-btn">Fortsätt handla</button>
+      </a>
+      <a href="checkout.html">
+        <button class="checkout-btn checkout-small-btn">Till kassan</button>
+      </a>
+    </div>
+    <h1 class="cart-title">Din varukorg</h1>
+    <div>
+      <div class="cart-layout">
+        <h3 class="item-name" class="item-name-lo">Varor</h3>
+        <h3 class="item-price">Price/st</h3>
+        <h3 class="item-quantity">Amount</h3>
+        <h3 class="item-price-sum">Sum</h3>
+      </div>
+      <div id="cart-items"></div>
+    </div>
+
+    <div id="checkout">
+      <div class="checkout-payment">
+        <h2>Att betala:</h2>
+        <h2 id="cart-sum-payment"></h2>
+      </div>
+      <a href="checkout.html">
+        <button class="checkout-btn checkout-large-btn">Till kassan</button>
+      </a>
+    </div>
+  </div>
+
+
+  <script type="module" src="./src/scripts/cart.js"></script>
+</body>
+
+</html>
