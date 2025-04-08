@@ -103,7 +103,7 @@ header {
 /* Main Content */
 .main-content {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 900px;
   margin: auto;
 }
 
@@ -169,6 +169,15 @@ header {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
+}
+
+.prod-card-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #b34040;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 /* Login */
@@ -497,6 +506,10 @@ input[type="password"]:focus {
 hr {
   border: 1px solid #f1f1f1;
   margin-bottom: 25px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* Stilar för knappar */

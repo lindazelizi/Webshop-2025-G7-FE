@@ -18,14 +18,28 @@ export async function fetchProducts(endpoint = "api/products") {
 
 export async function addProducts(endpoint = "api/products", product) {
   const url = `${getBaseUrl()}${endpoint}`;
-  // Needs authentication
+  let user = JSON.parse(localStorage.getItem("user"))
+  console.log(user)
   const response = await fetch(url, {
     method: "POST",
+    headers: {
+      'Authorization': `Bearer ${user}`,
+      'Content-Type': 'application/json',
+    },
     body: JSON.stringify(product),
   });
 
   const data = await response.json();
   console.log("Added Product:", data);
+}
+
+export async function getCategories(endpoint = "api/categories") {
+  const url = `${getBaseUrl()}${endpoint}`;
+  const response = await fetch(url);
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  }
 }
 
 export async function checkAdmin(endpoint = "null") {
