@@ -43,6 +43,22 @@ export async function getCategories(endpoint = "api/categories") {
   }
 }
 
+export async function buyItems(items, endpoint = "api/orders") {
+  console.log(JSON.stringify(items))
+  const url = `${getBaseUrl()}${endpoint}`;
+  let user = JSON.parse(localStorage.getItem("user"))
+  const response = await fetch(url, {
+    method: "POST",
+    headers: {
+      'Authorization': `Bearer ${user.token}`,
+    },
+    body: JSON.stringify(items)
+  });
+
+  const data = await response.json();
+  console.log("Bought items:", data);
+}
+
 export async function checkAdmin(endpoint = "null") {
 
 }

@@ -135,28 +135,35 @@ async function addProduct() {
 
 
 function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const existingProductId = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
+  try {
+    let cart = [];
+    const storedCart = localStorage.getItem('cart');
+    cart = storedCart ? JSON.parse(storedCart) : [];
+    const existingProductId = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
 
-  if (existingProductId !== -1) {
-    let existingProduct = cart[existingProductId];
-    let updatedQuantity = existingProduct.quantity + 1;
-    if (updatedQuantity > product.stock) {
-      alert("You already have all the stock in your cart");
-      existingProduct.quantity = product.stock;
+    if (existingProductId !== -1) {
+      let existingProduct = cart[existingProductId];
+      let updatedQuantity = existingProduct.quantity + 1;
+      if (updatedQuantity > product.stock) {
+        alert("You already have all the stock in your cart");
+        existingProduct.quantity = product.stock;
+      } else {
+        existingProduct.quantity = updatedQuantity;
+      }
+      cart[existingProductId] = existingProduct;
     } else {
-      existingProduct.quantity = updatedQuantity;
+      cart.push({
+        product: product,
+        quantity: 1
+      });
     }
-    cart[existingProductId] = existingProduct;
-  } else {
-    cart.push({
-      product: product,
-      quantity: 1
-    });
+
+    localStorage.setItem('cart', JSON.stringify(cart));
+    cartBalanceUpdate();
+  } catch (e) {
+    console.error("Error add to cart: ", e)
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
-  cartBalanceUpdate();
 }
 
 async function updateCartItems() {
