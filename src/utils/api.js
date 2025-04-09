@@ -16,17 +16,18 @@ export async function fetchProducts(endpoint = "api/products") {
   return [];
 }
 
-export async function addProducts(endpoint = "api/products", product) {
+export async function addProducts(product, endpoint = "api/products") {
   const url = `${getBaseUrl()}${endpoint}`;
   let user = JSON.parse(localStorage.getItem("user"))
-  console.log(user)
+  console.log(user.token)
+  console.log(product)
   const response = await fetch(url, {
     method: "POST",
     headers: {
-      'Authorization': `Bearer ${user}`,
+      'Authorization': `Bearer ${user.token}`,
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify(product),
+    body: JSON.stringify(product)
   });
 
   const data = await response.json();

@@ -118,7 +118,7 @@ async function addProduct() {
       stock: document.getElementById("stock").value
     };
     console.log(product);
-    addProducts();
+    addProducts(product);
   } catch (error) {
     console.error("Error adding product: ", error);
   }
