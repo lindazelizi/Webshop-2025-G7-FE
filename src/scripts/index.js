@@ -41,14 +41,21 @@ function createProductCard(product) {
   element.innerHTML = `
     <h3>${product.name}</h3>
     <p>$${product.price.toFixed(2)}</p>
+    <button class="view-product-btn">Visa produkt</button>
     <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
+
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     addToCart(product);
   });
 
+  element.querySelector(".view-product-btn").addEventListener("click", () => {
+    window.location.href = `product.html?id=${product._id}`;
+  });
+
   return element;
 }
+
 
 async function addProduct() {
   try {
@@ -56,14 +63,16 @@ async function addProduct() {
       name: document.getElementById("name").value,
       price: document.getElementById("price").value,
       description: document.getElementById("description").value,
-      stock: document.getElementById("stock").value
+      stock: document.getElementById("stock").value,
+      image: document.getElementById("image").value // ← detta är nytt
     };
     console.log(product);
-    addProducts();
+    addProducts(product);
   } catch (error) {
     console.error("Error adding product:", error);
   }
 }
+
 
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];

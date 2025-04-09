@@ -10,6 +10,13 @@ body {
   min-height: 100vh;
 }
 
+body.page {
+  display: flex;
+  flex-direction: column;
+}
+
+
+
 /* Header */
 * {
   margin: 0;
@@ -530,5 +537,9 @@ button:hover {
   .cancelbtn, .signupbtn {
     width: 100%;
   }
+}
+
+body.page main.main-content {
+  flex: 1;
 }
 
