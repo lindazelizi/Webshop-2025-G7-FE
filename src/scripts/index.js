@@ -7,11 +7,7 @@ document.addEventListener("DOMContentLoaded", function () {
   updateLoginLink();
   testCheckAdmin();
   addProductForm();
-  document.getElementById("addProduct").addEventListener("submit", function (e) {
-    e.preventDefault();
-    addProduct();
-    loadProducts();
-  });
+
 
 });
 
@@ -71,7 +67,6 @@ function addProductForm() {
     let formContainer = document.getElementById("addProductContainer");
     let form = document.createElement("form")
     form.setAttribute("id", "addProduct");
-    formContainer.innerHTML = ""
     form.innerHTML = `
         <label for="name">Namn på produkt</label>
         <input type="text" name="name" id="name" class="prodInp" required>
@@ -89,8 +84,16 @@ function addProductForm() {
         <input type="number" name="stock" id="stock" class="prodInp" min="0" value="0">
         <button type="submit">Lägg till</button>
     `
+    formContainer.innerHTML = ""
     formContainer.appendChild(form);
     fillCategory();
+
+    document.getElementById("addProduct").addEventListener("submit", function (e) {
+      e.preventDefault();
+      addProduct();
+      loadProducts();
+    });
+
   } catch (error) {
     console.error("Error showing product form: ", error)
   }
@@ -121,9 +124,9 @@ async function addProduct() {
       category: document.getElementById("category").value,
       stock: document.getElementById("stock").value
     };
-    console.log(product);
     addProducts(product);
     loadProducts();
+    document.getElementById("addProduct").reset();
   } catch (error) {
     console.error("Error adding product: ", error);
   }
