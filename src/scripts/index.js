@@ -1,17 +1,21 @@
-import { fetchProducts, addProducts, checkAdmin } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin, getCategories } from "../utils/api.js";
 import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
 
 document.addEventListener("DOMContentLoaded", function () {
   loadProducts();
   updateCartItems();
-  updateLoginLink(); 
+  updateLoginLink();
+  testCheckAdmin();
+  addProductForm();
+
+
 });
 
-document.getElementById("addProduct").addEventListener("submit", function (e) {
-  e.preventDefault();
-  addProduct();
-  loadProducts();
-});
+
+async function testCheckAdmin() {
+  let test = JSON.parse(localStorage.getItem("user"));
+
+}
 
 async function loadProducts() {
   const productsContainer = document.getElementById("products");
@@ -39,6 +43,7 @@ function createProductCard(product) {
   const element = document.createElement("div");
   element.className = "product-card";
   element.innerHTML = `
+    <img src="${product.imageUrl}" alt="Bild på ${product.name}" class="prod-card-img">
     <h3>${product.name}</h3>
     <p>$${product.price.toFixed(2)}</p>
     <button class="view-product-btn">Visa produkt</button>
@@ -57,18 +62,73 @@ function createProductCard(product) {
 }
 
 
+function addProductForm() {
+  try {
+    let formContainer = document.getElementById("addProductContainer");
+    let form = document.createElement("form")
+    form.setAttribute("id", "addProduct");
+    form.innerHTML = `
+        <label for="name">Namn på produkt</label>
+        <input type="text" name="name" id="name" class="prodInp" required>
+        <label for="ImgUrl">Bild url</label>
+        <input type="text" class="prodInp" id="imageUrl" required>
+        <label for="price">Pris</label>
+        <input type="number" name="price" id="price" class="prodInp" min="0.01" value="0" step="any" required>
+        <label for="category">Kategori</label>
+        <select name="category" id="category" class="prodInp">
+        <option value=""></option>
+        </select>
+        <label for="description">Beskrivning</label>
+        <textarea name="description" id="description" class="prodInp"></textarea>
+        <label for="stock">Lager</label>
+        <input type="number" name="stock" id="stock" class="prodInp" min="0" value="0">
+        <button type="submit">Lägg till</button>
+    `
+    formContainer.innerHTML = ""
+    formContainer.appendChild(form);
+    fillCategory();
+
+    document.getElementById("addProduct").addEventListener("submit", function (e) {
+      e.preventDefault();
+      addProduct();
+      loadProducts();
+    });
+
+  } catch (error) {
+    console.error("Error showing product form: ", error)
+  }
+}
+
+async function fillCategory() {
+  try {
+    let categories = await getCategories();
+    let categoryContainer = document.getElementById("category")
+    categories.forEach(category => {
+      let element = document.createElement("option");
+      element.innerHTML = `${category.name}`;
+      element.value = `${category._id}`
+      categoryContainer.appendChild(element);
+    });
+  } catch (error) {
+    console.error("Error storing categories", error)
+  }
+}
+
 async function addProduct() {
   try {
     const product = {
       name: document.getElementById("name").value,
       price: document.getElementById("price").value,
       description: document.getElementById("description").value,
+      imageUrl: document.getElementById("imageUrl").value,
+      category: document.getElementById("category").value,
       stock: document.getElementById("stock").value
     };
-    console.log(product);
     addProducts(product);
+    loadProducts();
+    document.getElementById("addProduct").reset();
   } catch (error) {
-    console.error("Error adding product:", error);
+    console.error("Error adding product: ", error);
   }
 }
 

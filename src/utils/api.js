@@ -1,6 +1,6 @@
 export function getBaseUrl() {
   if (!window.location.href.includes('localhost')) {
-    return "https://webshop-2025-be-g7-temp.vercel.app/"
+    return "https://webshop-2025-be-g7.vercel.app/"
   }
   return "http://localhost:3000/";
 }
@@ -16,16 +16,31 @@ export async function fetchProducts(endpoint = "api/products") {
   return [];
 }
 
-export async function addProducts(endpoint = "api/products", product) {
+export async function addProducts(product, endpoint = "api/products") {
   const url = `${getBaseUrl()}${endpoint}`;
-  // Needs authentication
+  let user = JSON.parse(localStorage.getItem("user"))
+  console.log(user.token)
+  console.log(product)
   const response = await fetch(url, {
     method: "POST",
-    body: JSON.stringify(product),
+    headers: {
+      'Authorization': `Bearer ${user.token}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(product)
   });
 
   const data = await response.json();
   console.log("Added Product:", data);
+}
+
+export async function getCategories(endpoint = "api/categories") {
+  const url = `${getBaseUrl()}${endpoint}`;
+  const response = await fetch(url);
+  if (response.ok) {
+    const data = await response.json();
+    return data;
+  }
 }
 
 export async function checkAdmin(endpoint = "null") {
