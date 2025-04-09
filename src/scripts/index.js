@@ -123,6 +123,7 @@ async function addProduct() {
     };
     console.log(product);
     addProducts(product);
+    loadProducts();
   } catch (error) {
     console.error("Error adding product: ", error);
   }
