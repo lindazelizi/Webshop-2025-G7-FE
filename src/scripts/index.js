@@ -50,14 +50,21 @@ function createProductCard(product) {
     <img src="${product.imageUrl}" alt="Bild på ${product.name}" class="prod-card-img">
     <h3>${product.name}</h3>
     <p>$${product.price.toFixed(2)}</p>
+    <button class="view-product-btn">Visa produkt</button>
     <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
+
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     addToCart(product);
   });
 
+  element.querySelector(".view-product-btn").addEventListener("click", () => {
+    window.location.href = `product.html?id=${product._id}`;
+  });
+
   return element;
 }
+
 
 function addProductForm() {
   try {
@@ -102,9 +109,6 @@ async function fillCategory() {
   } catch (error) {
     console.error("Error storing categories", error)
   }
-
-
-
 }
 
 async function addProduct() {
@@ -123,6 +127,8 @@ async function addProduct() {
     console.error("Error adding product: ", error);
   }
 }
+
+
 
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
