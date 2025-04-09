@@ -63,8 +63,7 @@ async function addProduct() {
       name: document.getElementById("name").value,
       price: document.getElementById("price").value,
       description: document.getElementById("description").value,
-      stock: document.getElementById("stock").value,
-      image: document.getElementById("image").value // ← detta är nytt
+      stock: document.getElementById("stock").value
     };
     console.log(product);
     addProducts(product);
@@ -72,6 +71,7 @@ async function addProduct() {
     console.error("Error adding product:", error);
   }
 }
+
 
 
 function addToCart(product) {
