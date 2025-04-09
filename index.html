@@ -23,10 +23,12 @@
       </div>
 
       <div class="header-icons">
+        <!-- Länkar Logga in till login.html -->
         <a href="login.html" class="icon-link">
           <i class="fas fa-user"></i> Logga in
         </a>
 
+        <!-- Länkar Kundvagn till cart.html -->
         <a href="cart.html" class="icon-link">
           <i class="fas fa-shopping-bag"></i>
           <p id="cartBalance">$0</p>
@@ -35,43 +37,16 @@
     </div>
   </header>
 
-  <div class="main-container">
-
-   
+  <body>
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
-
-  <!-- 🌟 NYTT: Sidebar med kategorier -->
-    <aside class="sidebar">
-      <h2>Kategorier</h2>
-      <ul>
-        <li><a href="#">Frukt & Grönt</a></li>
-        <li><a href="#">Kött & Fisk</a></li>
-        <li><a href="#">Mejeri</a></li>
-        <li><a href="#">Dryck</a></li>
-        <li><a href="#">Snacks</a></li>
-        <li><a href="#">Städ & Hygien</a></li>
-      </ul>
-    </aside>
-
       <h1>Welcome to Hakim Livs</h1>
-      <form id="addProduct">
-        <label for="name">Namn på produkt</label>
-        <input type="text" name="name" id="name" class="prodInp" required>
-        <label for="price">Pris</label>
-        <input type="number" name="price" id="price" class="prodInp" min="0.01" value="0" step="any" required>
-        <label for="description">Beskrivning</label>
-        <textarea name="description" id="description" class="prodInp"></textarea>
-        <label for="stock">Lager</label>
-        <input type="number" name="stock" id="stock" class="prodInp" min="0" value="0">
-        <button type="submit">Lägg till</button>
-      </form>
+      <div id="addProductContainer"></div>
       <div id="products"></div>
-    </div>
     </main>
 
-    
+
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-container">
@@ -102,21 +77,22 @@
         </div>
       </div>
 
-    <div class="footer-icon">
-      <img src="https://cdn-icons-png.freepik.com/512/3095/3095583.png" alt="Kontakt" width="50px" height="50px"
-        style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
-      <a href="#">Kontakt</a>
-      <img src="https://cdn-icons-png.freepik.com/512/11675/11675289.png" alt="Kundservice" width="50px" height="50px"
-        style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
-      <a href="#">Kundservice</a>
-    </div>
+      <div class="footer-icon">
+        <img src="https://cdn-icons-png.freepik.com/512/3095/3095583.png" alt="Kontakt" width="50px" height="50px"
+          style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
+        <a href="#">Kontakt</a>
+        <img src="https://cdn-icons-png.freepik.com/512/11675/11675289.png" alt="Kundservice" width="50px" height="50px"
+          style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
+        <a href="#">Kundservice</a>
+      </div>
 
-    <div class="footer-bottom">
-      <p>© 2025 Hakim Livs. Alla rättigheter förbehållna.</p>
-    </div>
-  </footer>
+      <div class="footer-bottom">
+        <p>© 2025 Hakim Livs. Alla rättigheter förbehållna.</p>
+      </div>
 
-  <script type="module" src="./src/scripts/index.js"></script>
-</body>
+    </footer>
+    <!-- PAGE-SPECIFIC JAVASCRIPT -->
+    <script type="module" src="./src/scripts/index.js"></script>
+  </body>
 
 </html>
