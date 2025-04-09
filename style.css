@@ -103,7 +103,6 @@ header {
 /* Main Content */
 .main-content {
   padding: 2rem;
-  max-width: 800px;
   margin: auto;
 }
 
@@ -500,7 +499,7 @@ hr {
 }
 
 /* Stilar för knappar */
-button {
+.signupbtn {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
@@ -517,6 +516,13 @@ button:hover {
 
 .cancelbtn {
   background-color: #f44336;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
 }
 
 .clearfix::after {
@@ -530,4 +536,30 @@ button:hover {
   .cancelbtn, .signupbtn {
     width: 100%;
   }
+}
+
+/*kategori*/
+
+.sidebar{
+   max-width: 250px;
+   margin: 10px;
+
+}
+.sidebar li{
+  padding: 10px;
+  margin-bottom: 5px;
+  border: 1px solid #C8102E;
+  text-decoration: none;
+
+}
+.sidebar a {
+  color: #a20c21;
+  text-decoration: none;
+
+}
+
+h2{
+  padding: 10px;
+  text-align: center;
+
 }
