@@ -22,8 +22,8 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   let imageUrl = "https://via.placeholder.com/300x200?text=No+Image";
-if (product.image && product.image.startsWith("http")) {
-  imageUrl = product.image;
+if (product.imageUrl && product.imageUrl.startsWith("http")) {
+  imageUrl = product.imageUrl;
 }
 
 
