@@ -73,7 +73,7 @@ function addProductForm() {
         <label for="price">Pris</label>
         <input type="number" name="price" id="price" class="prodInp" min="0.01" value="0" step="any" required>
         <label for="category">Kategori</label>
-        <select name="category" id="category" class="prodInp" required>
+        <select name="category" id="category" class="prodInp">
         <option value=""></option>
         </select>
         <label for="description">Beskrivning</label>

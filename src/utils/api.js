@@ -1,6 +1,6 @@
 export function getBaseUrl() {
   if (!window.location.href.includes('localhost')) {
-    return "https://webshop-2025-be-g7-temp.vercel.app/"
+    return "https://webshop-2025-be-g7.vercel.app/"
   }
   return "http://localhost:3000/";
 }
