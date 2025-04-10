@@ -172,6 +172,8 @@ header {
   border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 5px;
 }
 
 .prod-card-img {
