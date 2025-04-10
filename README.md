@@ -39,7 +39,7 @@ There is 1 font compiler: [Font Link](https://cdnjs.cloudflare.com/ajax/libs/fon
 - **getCategories**: Fetches all categories from the API.
 - **buyItems**: "Buys" items by using their ID to place an order on the API.
 - **updateProduct**: Edits a pre-existing product.
-- **checkAdmin**: Checks if user is admin.
+- **checkAdmin**: Checks if user is admin. Returns true of user is admin, false if user is not admin.
 ### Other global functions - functions.js
 - **updateLoginLink** If logged in, log in text gets switched with log out. Makes it possible to log out on different sites.
 - **cartBalanceUpdate** Updates the cart on header to show current value of items in users cart.
