@@ -1,4 +1,4 @@
-import { fetchProducts, addProducts, checkAdmin, getCategories } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct } from "../utils/api.js";
 import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
 
 document.addEventListener("DOMContentLoaded", function () {
@@ -47,13 +47,16 @@ function createProductCard(product) {
     <p>$${product.price.toFixed(2)}</p>
     <p>${productStock}</p>
     <button class="view-product-btn">Visa produkt</button>
+    <button class="edit-product-btn">Redigera produkt</button>
     <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
 
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     addToCart(product);
   });
-
+  element.querySelector(".edit-product-btn").addEventListener("click", () => {
+    editProduct(product);
+  });
   element.querySelector(".view-product-btn").addEventListener("click", () => {
     window.location.href = `product.html?id=${product._id}`;
   });
@@ -71,7 +74,7 @@ function addProductForm() {
         <label for="name">Namn på produkt</label>
         <input type="text" name="name" id="name" class="prodInp" required>
         <label for="ImgUrl">Bild url</label>
-        <input type="text" class="prodInp" id="imageUrl">
+        <input type="text" class="prodInp" id="imageUrl" required>
         <label for="price">Pris</label>
         <input type="number" name="price" id="price" class="prodInp" min="0.01" value="0" step="any" required>
         <label for="category">Kategori</label>
@@ -132,7 +135,33 @@ async function addProduct() {
   }
 }
 
+async function editProduct(product) {
+  let name = product.name;
+  let description = product.description;
+  let price = product.price;
 
+  if (confirm("Vill du byta namn på produkten?")) {
+    let newName = prompt(`Skriv in nytt namn för produkten. ${product.name}`, product.name);
+    if (newName) {
+      name = newName;
+    }
+  }
+  if (confirm("Vill du byta beskrivning för produkten?")) {
+    let newDesc = prompt(`Skriv in ny beskrivning för produkten. ${product.description}`, product.description);
+    if (newDesc) {
+      description = newDesc;
+    }
+  }
+  if (confirm("Vill du byta pris på produkten?")) {
+    let newPrice = prompt(`Skriv in nytt pris för produkten. ${product.price}`, product.price);
+    if (newPrice && !isNaN(newPrice)) {
+      price = parseFloat(newPrice);
+    }
+  }
+  let editedProduct = { name, description, price };
+  await updateProduct(editedProduct, product._id);
+  loadProducts();
+}
 
 function addToCart(product) {
   let cart = JSON.parse(localStorage.getItem('cart')) || [];
