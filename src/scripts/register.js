@@ -2,6 +2,7 @@ const form = document.querySelector('form');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('psw');
 const repeatPasswordInput = document.getElementById('psw-repeat');
+const cancelButton = document.getElementById('cancelBtn'); // Avbryt-knappen
 
 function isValidEmail(email) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -33,7 +34,7 @@ form.addEventListener('submit', async function (event) {
   const userData = {
     username: email,
     password: password,
-    isAdmin: false // eller true om du bygger ett adminformulär
+    isAdmin: false
   };
 
   try {
@@ -54,15 +55,19 @@ form.addEventListener('submit', async function (event) {
     console.log('Registrerad användare:', data.user);
     console.log('JWT-token:', data.token);
 
-    // Spara token i localStorage
     localStorage.setItem('token', data.token);
     localStorage.setItem('username', data.user.username);
 
     alert('Ditt konto har skapats! Du är nu inloggad.');
-    window.location.href = 'index.html'; // Ändra vid behov, t.ex. till dashboard eller startsida
+    window.location.href = 'index.html';
 
   } catch (error) {
     console.error('Fel vid registrering:', error);
     alert(`Registrering misslyckades: ${error.message}`);
   }
+});
+
+// 🧹 Avbryt-knappen rensar formuläret
+cancelButton.addEventListener('click', () => {
+  form.reset();
 });
