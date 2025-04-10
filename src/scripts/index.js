@@ -7,6 +7,8 @@ document.addEventListener("DOMContentLoaded", function () {
   updateLoginLink();
   testCheckAdmin();
   addProductForm();
+
+
 });
 
 
