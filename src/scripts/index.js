@@ -71,7 +71,7 @@ function addProductForm() {
         <label for="name">Namn på produkt</label>
         <input type="text" name="name" id="name" class="prodInp" required>
         <label for="ImgUrl">Bild url</label>
-        <input type="text" class="prodInp" id="imageUrl" required>
+        <input type="text" class="prodInp" id="imageUrl">
         <label for="price">Pris</label>
         <input type="number" name="price" id="price" class="prodInp" min="0.01" value="0" step="any" required>
         <label for="category">Kategori</label>
