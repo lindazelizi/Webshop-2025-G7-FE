@@ -460,6 +460,41 @@ header {
   max-width: 240px;
 }
 
+/* Checkout */
+
+#checkout-main {
+  display: grid;
+  justify-content: center;
+  width: 80%;
+  gap: 10px;
+}
+
+.order-item {
+  display: flex;
+  height: 100px;
+  align-items: center;
+  gap: 10px;
+}
+
+.checkout-img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  border: 1px solid #b34040;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.order-payment {
+  display: flex;
+  justify-content: center;
+}
+
+#purchase-button {
+  width: 60%;
+  justify-self: center;
+}
+
 /* Responsiv anpassning */
 
 @media (max-width: 768px) {

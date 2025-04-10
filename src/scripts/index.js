@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   updateLoginLink();
   testCheckAdmin();
   addProductForm();
-
-
 });
 
 
@@ -167,25 +165,25 @@ function addToCart(product) {
 }
 
 async function updateCartItems() {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const products = await fetchProducts();
-
-  cart = cart.filter(item => {
-    let exists = products.some(product => item.product._id === product._id);
-    return exists;
-  });
-
-  cart.forEach(item => {
-    products.forEach(product => {
-      if (item.product._id === product._id) {
-        item.product = product;
-        if (item.quantity > item.product.stock) {
-          item.quantity = item.product.stock;
-        }
-      }
+  const storedCart = localStorage.getItem('cart');
+  if (storedCart.length > 0) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const products = await fetchProducts();
+    cart = cart.filter(item => {
+      let exists = products.some(product => item.product._id === product._id);
+      return exists;
     });
-  });
-
-  localStorage.setItem('cart', JSON.stringify(cart));
+    cart.forEach(item => {
+      products.forEach(product => {
+        if (item.product._id === product._id) {
+          item.product = product;
+          if (item.quantity > item.product.stock) {
+            item.quantity = item.product.stock;
+          }
+        }
+      });
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
   cartBalanceUpdate();
 }
