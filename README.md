@@ -1,6 +1,7 @@
 # FRONTEND ÖVERLÄMNING
 
-**URL**: [GitHub Repository](https://github.com/Herman0404/Productivity-Assistant-Application-Project-Group-10)
+**URL**: [GitHub Repository](https://github.com/Alperen-tech/Webshop-2025-G1-FE)
+**Original URL** [GitHub Repository]([https://github.com/Alperen-tech/Webshop-2025-G1-FE](https://github.com/Nackademin-BE-1-Admin/Webshop-2025-G1-FE))
 
 ## Code Structure
 
