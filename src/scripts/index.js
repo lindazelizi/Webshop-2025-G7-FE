@@ -7,8 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
   updateLoginLink();
   testCheckAdmin();
   addProductForm();
-
-
 });
 
 
@@ -137,18 +135,21 @@ async function addProduct() {
 
 
 function addToCart(product) {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const existingProductId = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
+  try {
+    let cart = [];
+    const storedCart = localStorage.getItem('cart');
+    cart = storedCart ? JSON.parse(storedCart) : [];
+    const existingProductId = cart.findIndex(item => JSON.stringify(item.product) === JSON.stringify(product));
 
-  if (existingProductId !== -1) {
-    let existingProduct = cart[existingProductId];
-    let updatedQuantity = existingProduct.quantity + 1;
-    if (updatedQuantity > product.stock) {
-      alert("You already have all the stock in your cart");
-      existingProduct.quantity = product.stock;
-    } else {
-      existingProduct.quantity = updatedQuantity;
-    }
+    if (existingProductId !== -1) {
+      let existingProduct = cart[existingProductId];
+      let updatedQuantity = existingProduct.quantity + 1;
+      if (updatedQuantity > product.stock) {
+        alert("You already have all the stock in your cart");
+        existingProduct.quantity = product.stock;
+      } else {
+        existingProduct.quantity = updatedQuantity;
+      }
     cart[existingProductId] = existingProduct;
   } else {
     if (product.stock > 0) {
@@ -161,30 +162,28 @@ function addToCart(product) {
     }
   }
 
-  localStorage.setItem('cart', JSON.stringify(cart));
-  cartBalanceUpdate();
 }
 
 async function updateCartItems() {
-  let cart = JSON.parse(localStorage.getItem('cart')) || [];
-  const products = await fetchProducts();
-
-  cart = cart.filter(item => {
-    let exists = products.some(product => item.product._id === product._id);
-    return exists;
-  });
-
-  cart.forEach(item => {
-    products.forEach(product => {
-      if (item.product._id === product._id) {
-        item.product = product;
-        if (item.quantity > item.product.stock) {
-          item.quantity = item.product.stock;
-        }
-      }
+  const storedCart = localStorage.getItem('cart');
+  if (storedCart.length > 0) {
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const products = await fetchProducts();
+    cart = cart.filter(item => {
+      let exists = products.some(product => item.product._id === product._id);
+      return exists;
     });
-  });
-
-  localStorage.setItem('cart', JSON.stringify(cart));
+    cart.forEach(item => {
+      products.forEach(product => {
+        if (item.product._id === product._id) {
+          item.product = product;
+          if (item.quantity > item.product.stock) {
+            item.quantity = item.product.stock;
+          }
+        }
+      });
+    });
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
   cartBalanceUpdate();
 }
