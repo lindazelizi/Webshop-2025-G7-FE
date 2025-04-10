@@ -532,7 +532,7 @@ hr {
 }
 
 /* Stilar för knappar */
-button {
+.signupbtn {
   background-color: #04AA6D;
   color: white;
   padding: 14px 20px;
