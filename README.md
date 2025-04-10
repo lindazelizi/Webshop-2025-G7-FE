@@ -1,7 +1,7 @@
 # FRONTEND ÖVERLÄMNING
 
-**URL**: [GitHub Repository](https://github.com/Alperen-tech/Webshop-2025-G1-FE)
-**URL** [Original Github](https://github.com/Nackademin-BE-1-Admin/Webshop-2025-G1-FE)
+> This is a fork of [Original Github Repository](https://github.com/Nackademin-BE-1-Admin/Webshop-2025-G1-FE)
+> Current [This Github Repository](https://github.com/Alperen-tech/Webshop-2025-G1-FE)
 
 ## Code Structure
 
