@@ -494,6 +494,8 @@ header {
 
 /* === REGISTRERING === */
 
+/* === REGISTRERING === */
+
 .container {
   width: 100%;
   max-width: 400px;
@@ -630,4 +632,3 @@ button:hover {
   background-color: #ffe4e4;
   color: #C8102E;
 }
-
