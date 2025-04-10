@@ -41,11 +41,13 @@ async function loadProducts() {
 
 function createProductCard(product) {
   const element = document.createElement("div");
+  let productStock = "Lager: " + product.stock + "st";
   element.className = "product-card";
   element.innerHTML = `
     <img src="${product.imageUrl}" alt="Bild på ${product.name}" class="prod-card-img">
     <h3>${product.name}</h3>
     <p>$${product.price.toFixed(2)}</p>
+    <p>${productStock}</p>
     <button class="view-product-btn">Visa produkt</button>
     <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
@@ -149,10 +151,14 @@ function addToCart(product) {
     }
     cart[existingProductId] = existingProduct;
   } else {
-    cart.push({
-      product: product,
-      quantity: 1
-    });
+    if (product.stock > 0) {
+      cart.push({
+        product: product,
+        quantity: 1
+      });
+    } else {
+      alert("out of stock")
+    }
   }
 
   localStorage.setItem('cart', JSON.stringify(cart));
