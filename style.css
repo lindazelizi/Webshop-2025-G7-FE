@@ -504,19 +504,33 @@ header {
 
 #checkout-main-redirect-btn {
   width: 50%;
-  justify-self: center;
+  padding: 0.8rem 2rem;
+  margin: auto;
+  background-color: #C8102E;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2.5rem;
+  cursor: pointer;
+}
+
+#checkout-main-redirect-btn:hover {
+  background-color: #921328;
 }
 
 #order-container{
-  width: 100%;
+  width: 70%;
+  justify-self: center;
 }
 
 .order-item {
   display: grid;
   width: 100%;
-  grid-template-columns: 80px 10% 60% 10%;
+  grid-template-columns: 80px 10% 40% 10%;
   height: 100px;
   align-items: center;
+  justify-content: center;
   gap: 10px;
 }
 
@@ -536,8 +550,21 @@ header {
 
 #purchase-button {
   width: 50%;
-  justify-self: center;
+  padding: 0.8rem 2rem;
+  margin: auto;
+  background-color: #4CAF50;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 2.5rem;
+  cursor: pointer;
 }
+
+#purchase-button:hover {
+  background-color: #45a049;
+}
+
 
 .container {
   width: 100%;
