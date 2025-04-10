@@ -18,7 +18,7 @@ export async function fetchProducts(endpoint = "api/products") {
 
 export async function addProducts(product, endpoint = "api/products") {
   const url = `${getBaseUrl()}${endpoint}`;
-  let user = JSON.parse(localStorage.getItem("user"));
+  let user = JSON.parse(localStorage.getItem("user"))
   console.log(user.token)
   console.log(product)
   const response = await fetch(url, {
@@ -42,33 +42,6 @@ export async function getCategories(endpoint = "api/categories") {
     return data;
   }
 }
-
-export async function buyItems(items, endpoint = "api/orders") {
-  console.log(JSON.stringify(items));
-  const url = `${getBaseUrl()}${endpoint}`;
-  let user = JSON.parse(localStorage.getItem("user"));
-  try {
-    const response = await fetch(url, {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${user.token}`,
-      },
-      body: JSON.stringify(items)
-    });
-    if (!response.ok) {
-      console.error("Request failed with status:", response.status);
-      return false;
-    }
-    const data = await response.json();
-    console.log("Bought items:", data);
-    return true;
-  } catch (error) {
-    console.error("Error detected:", error);
-    return false;
-  }
-}
-
 
 export async function checkAdmin(endpoint = "null") {
 

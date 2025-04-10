@@ -22,22 +22,14 @@ export function updateLoginLink() {
 }
 
 export function cartBalanceUpdate() {
-  const storedCart = localStorage.getItem("cart");
-  if (storedCart.length > 0) {
-    const cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let sum = 0;
-    cart.forEach(item => {
-      sum += item.product.price * item.quantity;
-    });
+  const cart = JSON.parse(localStorage.getItem("cart")) || [];
+  let sum = 0;
+  cart.forEach(item => {
+    sum += item.product.price * item.quantity;
+  });
 
-    const cartBalanceEl = document.getElementById("cartBalance");
-    if (cartBalanceEl) {
-      cartBalanceEl.textContent = `$${sum.toFixed(2)}`;
-    }
-  } else {
-    const cartBalanceEl = document.getElementById("cartBalance");
-    if (cartBalanceEl) {
-      cartBalanceEl.textContent = `$0`;
-    }
+  const cartBalanceEl = document.getElementById("cartBalance");
+  if (cartBalanceEl) {
+    cartBalanceEl.textContent = `$${sum.toFixed(2)}`;
   }
 }
