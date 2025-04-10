@@ -83,6 +83,20 @@ export async function updateProduct(product, id, endpoint = "api/products/") {
   console.log("Added Product:", data);
 }
 
-export async function checkAdmin(endpoint = "null") {
+export async function checkAdmin(endpoint = "api/auth/me") {
+  try {
+    const url = `${getBaseUrl()}${endpoint}`;
+    let user = JSON.parse(localStorage.getItem("user"));
+    const response = await fetch(url, {
+      method: "GET",
+      headers: {
+        'Authorization': `Bearer ${user.token}`,
+        'Content-Type': 'application/json',
+      },
+    });
+    const data = await response.json();
+    return (data.user.isAdmin);
+  } catch (error) {
 
+  }
 }
