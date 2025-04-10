@@ -9,19 +9,15 @@
 </head>
 
 <body>
-
   <div class="top-info-bar"></div>
-
   <!-- HEADER -->
   <header>
     <div class="header-inner">
       <a href="index.html" class="logo">Hakim Livs</a>
-
       <div class="search-container">
         <input type="text" placeholder="Sök..." />
         <i class="fas fa-search search-icon"></i>
       </div>
-
       <div class="header-icons">
         <a href="login.html" class="icon-link">
           <i class="fas fa-user"></i> Logga in
@@ -38,16 +34,32 @@
 
     <!-- MAIN CONTENT -->
     <main class="main-content">
+
+
+
+
+
       <h1>Welcome to Hakim Livs</h1>
       <div id="addProductContainer"></div>
+
+      <aside class="category-sidebar">
+        <h2>Kategorier</h2>
+        <ul class="category-menu">
+          <li><a href="#" data-category="Dryck">🥤 Dryck</a></li>
+          <li><a href="#" data-category="Grönsaker">🥬 Grönsaker</a></li>
+          <li><a href="#" data-category="Örter">🌿 Örter</a></li>
+          <li><a href="#" data-category="Olika frukter">🍎 Olika frukter</a></li>
+          <li><a href="#" data-category="Godis, snacks & glass">🍭 Godis, snacks & glass</a></li>
+          <li><a href="#" data-category="Alla">🔁 Visa alla</a></li>
+        </ul>
+      </aside>
+
       <div id="products"></div>
     </main>
-
 
     <!-- FOOTER -->
     <footer class="footer">
       <div class="footer-container">
-
         <!-- LÄNKARNA ÄR TOMMA-->
         <div class="footer-section">
           <h3>Hakim Livs made simple</h3>
@@ -56,7 +68,6 @@
           <a href="#">Leverans &amp; frakt</a>
           <a href="#">Vanliga frågor och svar</a>
         </div>
-
         <div class="footer-section">
           <h3>The fine print</h3>
           <a href="#">Cookie Policy</a>
@@ -64,7 +75,6 @@
           <a href="#">Allmänna villkor</a>
           <a href="#">Cookie-inställningar</a>
         </div>
-
         <div class="footer-section">
           <h3>Join Hakim Livs</h3>
           <a href="#">Bli leverantör</a>
@@ -73,7 +83,6 @@
           <a href="#">Nyhetsbrev</a>
         </div>
       </div>
-
       <div class="footer-icon">
         <img src="https://cdn-icons-png.freepik.com/512/3095/3095583.png" alt="Kontakt" width="50px" height="50px"
           style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
@@ -82,11 +91,9 @@
           style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
         <a href="#">Kundservice</a>
       </div>
-
       <div class="footer-bottom">
         <p>© 2025 Hakim Livs. Alla rättigheter förbehållna.</p>
       </div>
-
     </footer>
     <!-- PAGE-SPECIFIC JAVASCRIPT -->
     <script type="module" src="./src/scripts/index.js"></script>
