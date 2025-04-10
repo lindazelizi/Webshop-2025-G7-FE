@@ -5,7 +5,7 @@
 ## Code Structure
 
 ### API
-In the `api.js` file, all API call functions are defined. Currently, there are 5 functions.
+In the `api.js` file, all API call functions are defined. Currently, there are 6 functions.
 
 ### General JavaScript
 Each HTML file corresponds to its own `.js` file. Every JavaScript file uses `type="module"` to enable `import` and `export` functionality. 
@@ -29,6 +29,7 @@ There is 1 font compiler: [Font Link](https://cdnjs.cloudflare.com/ajax/libs/fon
 - Aformentioned name problem exists for variables aswell. Rule would be good here aswell.
 - Very little comments about the code. The code has very little comments that explains things. This might make it hard if you are not part of the creation of the code.
 - More distinction between what an admin should see and the user.
+- Changes between english and swedish in varying places. Choose one language and stick to it globally
 
 ## Help functions
 ### API - api.js
@@ -38,6 +39,7 @@ There is 1 font compiler: [Font Link](https://cdnjs.cloudflare.com/ajax/libs/fon
 - **getCategories**: Fetches all categories from the API.
 - **buyItems**: "Buys" items by using their ID to place an order on the API.
 - **updateProduct**: Edits a pre-existing product.
+- **checkAdmin**: Checks if user is admin.
 ### Other global functions - functions.js
 - **updateLoginLink** If logged in, log in text gets switched with log out. Makes it possible to log out on different sites.
 - **cartBalanceUpdate** Updates the cart on header to show current value of items in users cart.
