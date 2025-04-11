@@ -27,10 +27,10 @@ It's recommended to use **Live Server** to view local changes in real time. Inst
 ## Codelibrary & Technology
 There is 1 font compiler: [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css). It is used in HTML's.
 
-## Improvment areas
+## Improvement areas
 - Alot of classes and ID's have confusing and overlapping names between sites. A naming "rule" would be good to apply.
 - Aformentioned name problem exists for variables aswell. Rule would be good here aswell.
-- Very little comments about the code. The code has very little comments that explains things. This might make it hard if you are not part of the creation of the code.
+- Very little comments about the code. The code has very little comments that explains things. This might make it hard if you are not part of the creation of the code. Recommend asking chatgpt for comments. 
 - More distinction between what an admin should see and the user.
 - Changes between english and swedish in varying places. Choose one language and stick to it globally
 
