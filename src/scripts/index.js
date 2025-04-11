@@ -2,12 +2,11 @@ import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct } 
 import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
-  let isAdmin = await checkAdmin();;
-  loadProducts(isAdmin);
+  loadProducts();
   updateCartItems();
   updateLoginLink();
   testCheckAdmin();
-  addProductForm(isAdmin);
+  addProductForm();
 });
 
 
@@ -16,7 +15,9 @@ async function testCheckAdmin() {
 
 }
 
-async function loadProducts(isAdmin) {
+async function loadProducts() {
+  let isAdmin = await checkAdmin();
+  
   const productsContainer = document.getElementById("products");
   productsContainer.innerHTML = "<p>Loading products...</p>";
 
@@ -95,7 +96,8 @@ function createProductCard(product) {
 }
 
 
-function addProductForm(isAdmin) {
+async function addProductForm() {
+  let isAdmin = await checkAdmin();
   if (isAdmin) {
     try {
       let formContainer = document.getElementById("addProductContainer");
