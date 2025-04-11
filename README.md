@@ -25,9 +25,9 @@ All styling is handled in a single stylesheet, `style.css`. The styles are based
 It's recommended to use **Live Server** to view local changes in real time. Install link: [Here](https://marketplace.visualstudio.com/items/?itemName=ritwickdey.LiveServer).
 
 ## Codelibrary & Technology
-There is 1 font compiler: [Font Link](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css). It is used in HTML's.
+There is 1 font compiler: [Font Awesome](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css). It is used in HTML's.
 
-##Improvment areas
+## Improvment areas
 - Alot of classes and ID's have confusing and overlapping names between sites. A naming "rule" would be good to apply.
 - Aformentioned name problem exists for variables aswell. Rule would be good here aswell.
 - Very little comments about the code. The code has very little comments that explains things. This might make it hard if you are not part of the creation of the code.
