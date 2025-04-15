@@ -11,6 +11,30 @@ function isValidUsername(username) {
   return regex.test(username);
 }
 
+// Kontrollera om användarnamnet är tillgängligt
+async function isUsernameAvailable(username) {
+  try {
+    const response = await fetch('https://webshop-2025-be-g7.vercel.app/api/auth/check-username', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ username })
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Kunde inte kontrollera användarnamnet.');
+    }
+
+    return data.available; 
+  } catch (error) {
+    console.error('Error checking username availability:', error);
+    alert('Ett fel uppstod vid kontroll av användarnamnet. Försök igen senare.');
+    return false; 
+  }
+}
 
 // Registreringsformuläret
 form.addEventListener('submit', async function (event) {
@@ -37,6 +61,11 @@ form.addEventListener('submit', async function (event) {
 
   if (!termsCheckbox.checked) {
     alert('Du måste godkänna våra Användarvillkor för att skapa ett konto.');
+    return;
+  }
+  const isAvailable = await isUsernameAvailable(username);
+  if (!isAvailable) {
+    alert('Användarnamnet är redan upptaget. Välj ett annat.');
     return;
   }
 
