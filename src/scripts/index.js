@@ -174,6 +174,9 @@ async function editProduct(product) {
   let name = product.name;
   let description = product.description;
   let price = product.price;
+  let stock = product.stock;
+  let imageUrl = product.imageUrl;
+  let category = product.category;
 
   if (confirm("Vill du byta namn på produkten?")) {
     let newName = prompt(`Skriv in nytt namn för produkten. ${product.name}`, product.name);
@@ -193,8 +196,37 @@ async function editProduct(product) {
       price = parseFloat(newPrice);
     }
   }
-  let editedProduct = { name, description, price };
-  await updateProduct(editedProduct, product._id);
+
+  if (confirm("Vill du byta bild-url för produkten?")) {
+    let newImgUrl = prompt(`Skriv in ny bild-url för produkten. ${product.imageUrl}`, product.imageUrl);
+    if (newImgUrl) {
+      imageUrl = newImgUrl;
+    }
+  }
+
+
+  if (confirm("Vill du byta lager för produkten?")) {
+    let newStock = prompt(`Skriv in nytt lager för produkten. ${product.stock}`, product.stock);
+    if (newStock && !isNaN(newStock)) {
+      stock = parseInt(newStock);
+    }
+  }
+
+  if (confirm("Vill du byta kategori för produkten?")) {
+    const categories = await getCategories(); 
+    const categoryOptions = categories.map((cat, index) => `${index + 1}. ${cat.name}`).join("\n");
+    const selectedCategoryIndex = prompt(`Välj en ny kategori:\n${categoryOptions}`, "1");
+
+    if (selectedCategoryIndex && !isNaN(selectedCategoryIndex)) {
+      const selectedIndex = parseInt(selectedCategoryIndex, 10) - 1;
+      if (categories[selectedIndex]) {
+        category = categories[selectedIndex]._id;
+      }
+    }
+  }
+
+  let editedProduct = { name, description, price, imageUrl, category, stock };
+  await updateProduct(editedProduct, product._id,);
   loadProducts();
 }
 
