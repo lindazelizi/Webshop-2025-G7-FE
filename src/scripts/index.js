@@ -113,8 +113,9 @@ function createAdminProductCard(product) {
   element.className = "product-card";
   element.innerHTML = `
     <img src="${product.imageUrl}" alt="Bild på ${product.name}" class="prod-card-img">
+  
+    <p class="price">${product.price.toFixed(0)}:-</p>
     <h3>${product.name}</h3>
-    <p>$${product.price.toFixed(2)}</p>
     <p>${productStock}</p>
     <button class="view-product-btn">Visa produkt</button>
     <button class="edit-product-btn">Redigera produkt</button>
@@ -140,8 +141,8 @@ function createProductCard(product) {
   element.className = "product-card";
   element.innerHTML = `
     <img src="${product.imageUrl}" alt="Bild på ${product.name}" class="prod-card-img">
+    <p class="price">${product.price.toFixed(0)}:-</p>    
     <h3>${product.name}</h3>
-    <p>$${product.price.toFixed(2)}</p>
     <p>${productStock}</p>
     <button class="view-product-btn">Visa produkt</button>
     <button class="add-to-cart-btn">Lägg i varukorg</button>

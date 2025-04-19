@@ -22,7 +22,7 @@ function loadCartItems() {
       });
     }
 
-    paymentText.innerHTML = "$" + itemSum.toFixed(2);
+    paymentText.innerHTML = ":-" + itemSum.toFixed(2);
     cartBalanceUpdate();
   } catch (error) {
     console.error("Error fetching items:", error);

@@ -810,3 +810,11 @@ button:hover {
   max-width: 100%;
   border-radius: 12px;
 }
+
+.price {
+  color: #ff3347;
+  font-size: 32px;
+  font-weight: bold;
+  padding: 5px;  
+  font-family: "Alfa Slab One", serif;
+}

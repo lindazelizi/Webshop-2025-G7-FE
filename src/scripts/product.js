@@ -25,7 +25,7 @@ async function loadProduct() {
         <h1>${product.name}</h1>
         <img src="${product.imageUrl}" alt="${product.name}" />
         <p>${product.description}</p>
-        <p><strong>Pris:</strong> $${product.price.toFixed(2)}</p>
+        <p class="price">${product.price.toFixed(0)}:-</p>
 
         <div class="quantity-controls">
           <button id="decreaseBtn">-</button>
