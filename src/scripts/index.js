@@ -1,5 +1,7 @@
 import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct } from "../utils/api.js";
 import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
+import { getBaseUrl } from "../utils/api.js";
+
 
 document.addEventListener("DOMContentLoaded", async function () {
   loadProducts();
@@ -7,7 +9,67 @@ document.addEventListener("DOMContentLoaded", async function () {
   updateLoginLink();
   testCheckAdmin();
   addProductForm();
+
+  const searchInput = document.querySelector(".search-container input");
+  searchInput.addEventListener("keypress", async (event) => {
+    if (event.key === "Enter") {
+      const query = searchInput.value.trim();
+      if (query) {
+        await searchProducts(query);
+      }else {
+        alert("Please enter a search term.");
+      }
+    }
+  });
 });
+
+
+async function searchProducts(query) {
+  const productsContainer = document.getElementById("products");
+  productsContainer.innerHTML = "<p>Searching...</p>";
+
+  try {  
+    const isAdmin = await checkAdmin();
+    const response = await fetch(`${getBaseUrl()}api/products/search?q=${encodeURIComponent(query)}`);
+    const products = await response.json();
+
+    if (!response.ok) {
+      if (response.status === 404) {
+        productsContainer.innerHTML = `
+          <div class="error-message">
+            <p>${products.message}</p>
+          </div>
+        `;
+        return;
+      }
+      throw new Error(products.error || "Failed to fetch products from search.");
+    }
+
+    productsContainer.innerHTML = "";
+
+    if (products.length > 0) {
+      products.forEach((product) => {
+        const card = isAdmin
+          ? createAdminProductCard(product) 
+          : createProductCard(product); 
+        productsContainer.appendChild(card);
+      });
+
+      setupCategoryFilters(products, isAdmin);
+      
+    } else {
+      productsContainer.innerHTML = "<p>No products match your search.</p>";
+    }
+  } catch (error) {
+    console.error("Error searching for products:", error);
+    productsContainer.innerHTML = `
+    <div class="error-message">
+      <p>Oops! Something went wrong:</p>
+      <p>${error.message}</p>
+    </div>
+  `;
+  }
+}
 
 
 async function testCheckAdmin() {
