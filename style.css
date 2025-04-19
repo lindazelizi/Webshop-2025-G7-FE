@@ -126,31 +126,37 @@ header {
 
 #addProduct {
   display: grid;
-  width: 60%;
-  border: solid 2px #b34040;
+  width: 100%;
+  border: solid 2px transparent;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   gap: 10px;
-  padding: 10px;
+  padding: 25px;
   margin: auto;
   margin-bottom: 10px;
   text-align: center;
   justify-items: center;
+  background-color: white;
+  border-radius: 10px;
 }
 
 #addProduct .prodInp {
-  width: 80%;
+  width: 50%;
   text-align: center;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  border: solid 2px transparent;
+  padding: 5px;
 }
 
 #addProduct #description {
   overflow-y: auto;
   resize: none;
   min-height: 120px;
-  width: 90%;
+  width: 50%;
 }
 
 #addProduct button {
-  background: linear-gradient(135deg, #ff5f5f, #ff8484);
+  background: #001e62;
   border: solid 0.5px rgb(0, 0, 0);
   padding: 12px 24px;
   font-size: 16px;
@@ -158,8 +164,10 @@ header {
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow:  3px 3px 0px #030f24,
+             -3px -3px 0px #ffffff;
 }
+
 
 /* === PRODUCTS === */
 
