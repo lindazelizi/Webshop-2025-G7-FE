@@ -58,8 +58,15 @@ header {
   font-weight: bold;
   font-size: 1.5em;
   color: #C8102E;
-  margin-right: 20px;
   white-space: nowrap;
+}
+
+.logo img {
+  width: 250px;
+  height: auto;
+  padding: 0;
+  margin: 0;
+  display: block;
 }
 
 /* Sökfält */
