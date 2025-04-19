@@ -32,12 +32,12 @@ export function cartBalanceUpdate() {
 
     const cartBalanceEl = document.getElementById("cartBalance");
     if (cartBalanceEl) {
-      cartBalanceEl.textContent = `$${sum.toFixed(2)}`;
+      cartBalanceEl.textContent = `${sum.toFixed(0)}:-`;
     }
   } else {
     const cartBalanceEl = document.getElementById("cartBalance");
     if (cartBalanceEl) {
-      cartBalanceEl.textContent = `$0`;
+      cartBalanceEl.textContent = `0:-`;
     }
   }
 }

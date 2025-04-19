@@ -22,7 +22,7 @@ function loadCartItems() {
       });
     }
 
-    paymentText.innerHTML = ":-" + itemSum.toFixed(2);
+    paymentText.innerHTML = itemSum.toFixed(0)+":-";
     cartBalanceUpdate();
   } catch (error) {
     console.error("Error fetching items:", error);
@@ -41,13 +41,13 @@ function createCartCard(item) {
   element.innerHTML = `
     <div class="cart-layout">
         <h3 class="item-name">${product.name}</h3>
-        <h3 class="item-price">$${product.price}</h3>
+        <h3 class="item-price">${product.price}:-</h3>
         <div class="item-quantity">
             <button class="decrease">-</button>
             <h3 class="item-quantity">${quantity} st</h3>
             <button class="increase">+</button>
         </div>
-        <h3 class="item-price-sum">$${productSum.toFixed(2)}</h3>
+        <h3 class="item-price-sum">${productSum.toFixed(0)}:-</h3>
     </div>
   `;
 

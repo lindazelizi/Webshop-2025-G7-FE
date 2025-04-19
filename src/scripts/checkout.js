@@ -37,7 +37,7 @@ function loadOrderItems() {
                 <img src="${img}" alt="Bild på ${name}" class="checkout-img">
                 <h3>${quantity}st</h3>
                 <h3>${name}</h3>
-                <h3>$${(price * quantity).toFixed(2)}</h3>
+                <h3>${(price * quantity).toFixed(0)}:-</h3>
                 </div>
                 `
                 orderContainer.appendChild(itemDisplay);
@@ -45,7 +45,7 @@ function loadOrderItems() {
             });
         }
 
-        paymentText.innerHTML = ":-" + itemSum.toFixed(2);
+        paymentText.innerHTML = itemSum.toFixed(0)+":-";
         cartBalanceUpdate();
     } catch (error) {
         console.error("Error fetching items:", error);
