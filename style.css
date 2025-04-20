@@ -29,14 +29,28 @@ body {
 /* === HEADER === */
 
 .top-info-bar {
-  height: 34px;
+  height: 100px;
   background-color: #001e62;
 }
 
+.top-info-message {
+  background-color: #001e62;
+  color: white;
+  text-align: center;
+  padding: 16px;
+  font-size: 16px;
+  font-family: "Avenir Next LT Pro", sans-serif;
+  font-weight: 400;
+  text-decoration: underline;
+  cursor: pointer;
+}
 header {
   background-color: white;
   padding: 10px 40px;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .header-inner {
