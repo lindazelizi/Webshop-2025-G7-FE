@@ -81,7 +81,8 @@ async function loadProducts() {
   let isAdmin = await checkAdmin();
   
   const productsContainer = document.getElementById("products");
-  productsContainer.innerHTML = "<p>Loading products...</p>";
+  productsContainer.innerHTML = "<div class='spinner'></div>";
+  
 
   try {
     const products = await fetchProducts();
