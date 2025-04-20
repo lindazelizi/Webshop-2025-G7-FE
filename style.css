@@ -916,3 +916,11 @@ font-weight: bolder;
 #categories .material-symbols-outlined  {
   color: #001e62;
 }
+
+.delete-product-btn {
+  background-color: #d9534f !important;
+}
+
+.delete-product-btn:hover {
+  background-color: #c9302c !important;
+}

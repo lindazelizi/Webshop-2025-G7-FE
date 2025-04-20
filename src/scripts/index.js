@@ -1,4 +1,4 @@
-import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct, deleteProduct } from "../utils/api.js";
 import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
 import { getBaseUrl } from "../utils/api.js";
 
@@ -123,6 +123,7 @@ function createAdminProductCard(product) {
     <p>${productStock}</p>
     <button class="view-product-btn">Visa produkt</button>
     <button class="edit-product-btn">Redigera produkt</button>
+    <button class="delete-product-btn">Ta bort produkt</button>
     <button class="add-to-cart-btn">Lägg i varukorg</button>
   `;
 
@@ -131,6 +132,9 @@ function createAdminProductCard(product) {
   });
   element.querySelector(".edit-product-btn").addEventListener("click", () => {
     editProduct(product);
+  });
+  element.querySelector(".delete-product-btn").addEventListener("click", () => {
+    deleteProductHandler(product);
   });
   element.querySelector(".view-product-btn").addEventListener("click", () => {
     window.location.href = `product.html?id=${product._id}`;
@@ -385,4 +389,23 @@ function setupCategoryFilters(products, isAdmin) {
       }
     });
   });
+}
+
+async function deleteProductHandler(product) {
+  if (confirm(`Är du säker på att du vill ta bort produkten "${product.name}"?`)) {
+    try {
+      const success = await deleteProduct(product._id);
+      
+      if (success) {
+        alert(`Produkten "${product.name}" har tagits bort.`);
+        // Ladda om produktlistan för att visa uppdateringen
+        loadProducts();
+      } else {
+        alert("Det gick inte att ta bort produkten. Försök igen senare.");
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      alert("Ett fel uppstod när produkten skulle tas bort.");
+    }
+  }
 }
