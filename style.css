@@ -146,6 +146,7 @@ header {
   color: #1b1b1b;
   text-align: left;
   margin-bottom: 20px;
+  margin-left: 2px;
   font-weight:lighter;
 }
 
@@ -749,18 +750,17 @@ button:hover {
 .category-sidebar {
   background-color: #f3f3f3;
   border: 1px transparent;
-  padding: 20px;
+  padding: 0;
   border-radius: 8px;
   margin-bottom: 2rem;
 }
 
 .category-menu {
   list-style: none;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 25px;
+  gap: 0px;
+  margin-bottom: 10px;
 }
 
 .category-menu li {
@@ -769,7 +769,7 @@ button:hover {
   padding: 0;
   border-radius: 5px;
   transition: background-color 0.3s ease;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .category-menu li a {
@@ -778,17 +778,18 @@ button:hover {
   gap: 8px;
   text-decoration: none;
   color: #333;
-  padding: 10px 15px;
   border-radius: 5px;
   transition: background-color 0.3s ease;
   font-weight: lighter;
-  background-color: #f8f8f8;
-  padding: 0;
+  background-color: transparent;
+  padding: 8px 15px 8px 0px;
+  margin: 1px;
 }
 
 .category-menu li a:hover {
-  background-color: #ffe4e4;
-  color: #fa3332;
+  background-color: #ffffffd7;
+  width: 100%;
+
 }
 
 #recommended a {
