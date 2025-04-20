@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
 
 <body>
 
@@ -67,19 +67,37 @@
       
       <div id="addProductContainer"></div>
 
-      <aside class="category-sidebar">
-        <h2>Kategorier</h2>
-        <ul class="category-menu">
-          <li><a href="#" data-category="Dryck">🥤 Dryck</a></li>
-          <li><a href="#" data-category="Grönsaker">🥬 Grönsaker</a></li>
-          <li><a href="#" data-category="Örter">🌿 Örter</a></li>
-          <li><a href="#" data-category="Olika frukter">🍎 Olika frukter</a></li>
-          <li><a href="#" data-category="Godis, snacks & glass">🍭 Godis, snacks & glass</a></li>
-          <li><a href="#" data-category="Alla">🔁 Visa alla</a></li>
-        </ul>
-      </aside>
+      <div class="main-container">
+        <aside class="category-sidebar">
+          <h2>REKOMMENDERAT</h2>
+          <ul class="category-menu" id="recommended">
+            <li><a href="#"><span class="material-symbols-outlined">favorite</span>Dina produkter</a></li>
+            <li><a href="#"><span class="material-symbols-outlined">star</span>Aktuell just nu</a></li>
+            <li><a href="#" data-category="Alla"><span class="material-symbols-outlined">grid_view</span>Alla produkter</a></li>
+          </ul>
+          <h2>KATEGORIER</h2>
+          <ul class="category-menu" id="categories">
+            <li><a href="#" data-category="Dryck"><span class="material-symbols-outlined">water_full</span> Dryck</a></li>
+            <li><a href="#" data-category="Grönsaker"><span class="material-symbols-outlined">nature</span> Grönsaker</a></li>
+            <li><a href="#" data-category="Örter"><span class="material-symbols-outlined">psychiatry</span> Örter</a></li>
+            <li><a href="#" data-category="Olika frukter"><span class="material-symbols-outlined">nutrition</span> Olika frukter</a></li>
+            <li><a href="#" data-category="Godis, snacks & glass"><span class="material-symbols-outlined">cookie</span> Godis, snacks & glass</a></li>
+          </ul>
+          <h2>VARUMÄRKEN</h2>
+          <ul class="category-menu">
+            <li><a href="#" data-category="Alla">Alla varumärken</a></li>
+          </ul>
+          <h2>BEHÖVER DU HJÄLP?</h2>
+          <ul class="category-menu">
+            <li><a href="#">Kundservice</a></li>
+            <li><a href="#">Så funkar Hakim Livs</a></li>
+            <li><a href="#">Hakim Livs Stories</a></li>
+          </ul>
+        </aside>
 
-      <div id="products"></div>
+        <div id="products"></div>
+      </div>
+      
     </main>
 
 
