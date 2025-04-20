@@ -89,7 +89,10 @@ async function loadProducts() {
     productsContainer.innerHTML = "";
 
     if (products.length > 0) {
-      products.forEach((product) => {
+      // Vänd på produktlistan för att visa de senaste först
+      const reversedProducts = [...products].reverse();
+      
+      reversedProducts.forEach((product) => {
         const card = isAdmin
           ? createAdminProductCard(product)
           : createProductCard(product);
@@ -361,10 +364,14 @@ function setupCategoryFilters(products, isAdmin) {
       const productsContainer = document.getElementById("products");
       productsContainer.innerHTML = "";
 
-      const filtered = selectedCategory === "Alla"
+      let filtered = selectedCategory === "Alla"
         ? products
         : products.filter(product => product.category?.name === selectedCategory);
-         /*ändrat på product.filter-------------------------- */
+      
+      // Vänd på produktlistan ENDAST för "Alla varumärken" och "Alla produkter"
+      if (selectedCategory === "Alla") {
+        filtered = [...filtered].reverse();
+      }
 
       if (filtered.length > 0) {
         filtered.forEach((product) => {
