@@ -1,4 +1,4 @@
-import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct } from "../utils/api.js";
+import { fetchProducts, addProducts, checkAdmin, getCategories, updateProduct, deleteProduct } from "../utils/api.js";
 import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
 import { getBaseUrl } from "../utils/api.js";
 
@@ -89,7 +89,10 @@ async function loadProducts() {
     productsContainer.innerHTML = "";
 
     if (products.length > 0) {
-      products.forEach((product) => {
+      // Vänd på produktlistan för att visa de senaste först
+      const reversedProducts = [...products].reverse();
+      
+      reversedProducts.forEach((product) => {
         const card = isAdmin
           ? createAdminProductCard(product)
           : createProductCard(product);
@@ -119,6 +122,7 @@ function createAdminProductCard(product) {
     <h3>${product.name}</h3>
     <p>${productStock}</p>
     <button class="edit-product-btn">Redigera produkt</button>
+    <button class="delete-product-btn">Ta bort produkt</button>
     <button class="add-to-cart-btn">Köp</button>
   `;
 
@@ -127,6 +131,9 @@ function createAdminProductCard(product) {
   });
   element.querySelector(".edit-product-btn").addEventListener("click", () => {
     editProduct(product);
+  });
+  element.querySelector(".delete-product-btn").addEventListener("click", () => {
+    deleteProductHandler(product);
   });
 
   element.addEventListener("click", () => {
@@ -361,10 +368,14 @@ function setupCategoryFilters(products, isAdmin) {
       const productsContainer = document.getElementById("products");
       productsContainer.innerHTML = "";
 
-      const filtered = selectedCategory === "Alla"
+      let filtered = selectedCategory === "Alla"
         ? products
         : products.filter(product => product.category?.name === selectedCategory);
-         /*ändrat på product.filter-------------------------- */
+      
+      // Vänd på produktlistan ENDAST för "Alla varumärken" och "Alla produkter"
+      if (selectedCategory === "Alla") {
+        filtered = [...filtered].reverse();
+      }
 
       if (filtered.length > 0) {
         filtered.forEach((product) => {
@@ -378,4 +389,23 @@ function setupCategoryFilters(products, isAdmin) {
       }
     });
   });
+}
+
+async function deleteProductHandler(product) {
+  if (confirm(`Är du säker på att du vill ta bort produkten "${product.name}"?`)) {
+    try {
+      const success = await deleteProduct(product._id);
+      
+      if (success) {
+        alert(`Produkten "${product.name}" har tagits bort.`);
+        // Ladda om produktlistan för att visa uppdateringen
+        loadProducts();
+      } else {
+        alert("Det gick inte att ta bort produkten. Försök igen senare.");
+      }
+    } catch (error) {
+      console.error("Error deleting product:", error);
+      alert("Ett fel uppstod när produkten skulle tas bort.");
+    }
+  }
 }

@@ -100,3 +100,28 @@ export async function checkAdmin(endpoint = "api/auth/me") {
 
   }
 }
+
+export async function deleteProduct(id, endpoint = "api/products/") {
+  const url = `${getBaseUrl()}${endpoint}${id}`;
+  let user = JSON.parse(localStorage.getItem("user"));
+  
+  try {
+    const response = await fetch(url, {
+      method: "DELETE",
+      headers: {
+        'Authorization': `Bearer ${user.token}`,
+        'Content-Type': 'application/json',
+      }
+    });
+    
+    if (!response.ok) {
+      const errorData = await response.json();
+      throw new Error(errorData.error || "Failed to delete product");
+    }
+    
+    return true;
+  } catch (error) {
+    console.error("Error deleting product:", error);
+    return false;
+  }
+}
