@@ -17,7 +17,7 @@ document.addEventListener("DOMContentLoaded", async function () {
       if (query) {
         await searchProducts(query);
       }else {
-        alert("Please enter a search term.");
+        loadProducts();
       }
     }
   });
