@@ -15,32 +15,76 @@
   <!-- TOP BAR -->
   <div class="top-info-message">Billigare eller pengarna tillbaka! Se prisgarantin</div>
 
-  <!-- HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="logo"><a href="index.html" class="logo"><img src="https://i.postimg.cc/R0617FXx/Untitled-design-1.png"/></a></div>
+<!-- HEADER -->
+<header>
+  <div class="header-inner">
+    <div class="logo"><a href="index.html"><img src="https://i.postimg.cc/R0617FXx/Untitled-design-1.png"/></a></div>
 
-      <div class="search-container">
-        <input type="text" placeholder="Sök..." />
-        <i class="fas fa-search search-icon"></i>
-      </div>
-
-      <div class="header-icons">
-        <a href="login.html" class="icon-link">
-          <i class="fas fa-user"></i> Logga in
-        </a>
-        <a href="cart.html" class="checkout-button">
-          <div class="icon-box">
-            <img src="https://img.icons8.com/?size=25&id=aF2dnwFMUBL4&format=png&color=000000" alt="box icon" />
-          </div>
-          <div class="text-box">
-            <div class="label">Till kassan &rsaquo;</div>
-            <div id="cartBalance">0:-</div>
-          </div>
-        </a>
-      </div>
+    <div class="search-container">
+      <input type="text" placeholder="Sök..." />
+      <i class="fas fa-search search-icon"></i>
     </div>
-  </header>
+
+    <div class="header-icons">
+      <a href="#" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
+          <path d="M24.2 3h-6.97L7.87 15.12h7.98L4 30l22-18.79-8.46-.12L24.19 3Z" fill="currentColor"></path>
+        </svg>
+        <span>Förmåner</span>
+      </a>
+      
+      <a href="login.html" class="nav-item">
+        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
+          <path d="M6 27v-2s0-5 5-5h10c5 0 5 5 5 5v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+          <circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="2"></circle>
+        </svg>
+        <span>Logga in</span>
+      </a>
+      
+      <a href="cart.html" class="checkout-button">
+        <div class="checkout-content">
+          <div class="checkout-display">
+            <div class="checkout-box-wrapper">
+              <div class="checkout-box-container">
+                <div class="box-wrapper">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="box-icon" fill="none" viewBox="0 0 32 32">
+                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 3.2 24V8l10.7 4.3v16Z"></path>
+                    <path fill="#F7B26A" d="m9.6 24-4-1.6 4 1.6Z"></path>
+                    <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m9.6 24-4-1.6"></path>
+                    <path fill="#F7B26A" d="m8.3 21.2-2.7-1 2.7 1Z"></path>
+                    <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m8.3 21.2-2.7-1"></path>
+                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 28.8 24V8l-15 4.3v16Z"></path>
+                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M28.8 8 18.1 3.8 3.2 8l10.7 4.3L28.8 8Z"></path>
+                    <path fill="#333" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M17.6 27.2 28.8 24V8l-5 1.5-6.2 17.7ZM19 11l9.5-3L19 4v7Z" opacity=".2"></path>
+                  </svg>
+                  <div class="check-badge">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="badge-icon" fill="none" viewBox="0 0 32 32">
+                      <path vector-effect="non-scaling-stroke" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M25 9 14 23l-7-7"></path>
+                    </svg>
+                  </div>
+                </div>
+                <div class="progress-meter">
+                  <div class="meter-fill"></div>
+                </div>
+              </div>
+              <div class="checkout-text">
+                <div class="checkout-header">
+                  <p class="checkout-title">Till kassan</p>
+                  <div class="arrow-icon">
+                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 12 13">
+                      <path vector-effect="non-scaling-stroke" d="m4.2 2.3 4.2 4.2-4.2 4.2" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                  </div>
+                </div>
+                <p class="checkout-price" id="cartBalance">0,00 kr</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</header>
 
   <!-- FORMULÄR FÖR SKAPA KONTO -->
   <div class="container">

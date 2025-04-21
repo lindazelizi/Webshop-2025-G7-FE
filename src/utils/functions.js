@@ -21,9 +21,10 @@ export function updateLoginLink() {
   }
 }
 
+
 export function cartBalanceUpdate() {
   const storedCart = localStorage.getItem("cart");
-  if (storedCart.length > 0) {
+  if (storedCart && storedCart.length > 0) {
     const cart = JSON.parse(localStorage.getItem("cart")) || [];
     let sum = 0;
     cart.forEach(item => {
@@ -32,12 +33,45 @@ export function cartBalanceUpdate() {
 
     const cartBalanceEl = document.getElementById("cartBalance");
     if (cartBalanceEl) {
-      cartBalanceEl.textContent = `${sum.toFixed(0)}:-`;
+      cartBalanceEl.textContent = `${Math.floor(sum)},00 kr`;
+      
+      const meterFill = document.querySelector('.meter-fill');
+      if (meterFill) {
+        const fillPercentage = Math.min(sum / 600 * 100, 100);
+        meterFill.style.width = `${fillPercentage}%`;
+        
+        if (sum >= 500) {
+          meterFill.style.backgroundColor = '#91DD4C';
+        } else {
+          meterFill.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+        }
+        
+        const checkBadge = document.querySelector('.check-badge');
+        if (checkBadge) {
+          if (sum >= 500) {
+            checkBadge.style.display = 'flex';
+          } else {
+            checkBadge.style.display = 'none';
+          }
+        }
+      }
     }
   } else {
     const cartBalanceEl = document.getElementById("cartBalance");
     if (cartBalanceEl) {
-      cartBalanceEl.textContent = `0:-`;
+      cartBalanceEl.textContent = `0,00 kr`;
+      
+      const meterFill = document.querySelector('.meter-fill');
+      if (meterFill) {
+        meterFill.style.width = '0%';
+        meterFill.style.backgroundColor = 'rgba(255, 255, 255, 0.6)';
+      }
+      
+      const checkBadge = document.querySelector('.check-badge');
+      if (checkBadge) {
+        checkBadge.style.display = 'none';
+      }
     }
   }
 }
+
