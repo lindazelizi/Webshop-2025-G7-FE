@@ -834,7 +834,7 @@ font-weight: bolder;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px;
+  padding: 0px;
   background-color: #f4f4f4;
   border-radius: 20px;
   gap: 40px;
