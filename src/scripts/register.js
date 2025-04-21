@@ -1,3 +1,5 @@
+import { cartBalanceUpdate, updateLoginLink } from "../utils/functions.js";
+
 const form = document.querySelector('form');
 const emailInput = document.getElementById('email');
 const passwordInput = document.getElementById('psw');
@@ -112,4 +114,17 @@ form.addEventListener('submit', async function (event) {
 // 🧹 Avbryt-knappen rensar formuläret
 cancelButton.addEventListener('click', () => {
   form.reset();
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+  cartBalanceUpdate();
+  updateLoginLink();
+  
+  // Register page specific code
+  const cancelBtn = document.getElementById("cancelBtn");
+  if (cancelBtn) {
+    cancelBtn.addEventListener("click", function() {
+      window.location.href = "index.html";
+    });
+  }
 });

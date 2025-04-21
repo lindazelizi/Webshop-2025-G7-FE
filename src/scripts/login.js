@@ -1,8 +1,13 @@
 import { getBaseUrl } from "../utils/api.js";
-import { updateLoginLink } from "../utils/functions.js";
+import { updateLoginLink, cartBalanceUpdate } from "../utils/functions.js";
 
 document.addEventListener("DOMContentLoaded", function () {
-  updateLoginLink(); 
+  // Update cart balance display
+  cartBalanceUpdate();
+  
+  // Update login link
+  updateLoginLink();
+  
   initLogin();
 });
 

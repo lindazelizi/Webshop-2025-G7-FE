@@ -3,6 +3,7 @@ import { updateLoginLink, cartBalanceUpdate } from "../utils/functions.js";
 
 document.addEventListener("DOMContentLoaded", async function () {
   updateLoginLink();
+  cartBalanceUpdate();
   await loadProduct();
 });
 
