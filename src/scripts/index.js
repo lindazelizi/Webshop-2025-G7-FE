@@ -26,7 +26,12 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 async function searchProducts(query) {
   const productsContainer = document.getElementById("products");
-  productsContainer.innerHTML = "<p>Searching...</p>";
+  productsContainer.innerHTML = `
+    <div class="spinner-container">
+      <div class="spinner"></div>
+      <p>Söker...</p>
+    </div>
+  `;
 
   try {  
     const isAdmin = await checkAdmin();
@@ -42,7 +47,7 @@ async function searchProducts(query) {
         `;
         return;
       }
-      throw new Error(products.error || "Failed to fetch products from search.");
+      throw new Error(products.error || "Kunde inte hämta produkter från sökningen.");
     }
 
     productsContainer.innerHTML = "";
@@ -58,7 +63,7 @@ async function searchProducts(query) {
       setupCategoryFilters(products, isAdmin);
       
     } else {
-      productsContainer.innerHTML = "<p>No products match your search.</p>";
+      productsContainer.innerHTML = "<p>Inga produkter matchar din sökning.</p>";
     }
   } catch (error) {
     console.error("Error searching for products:", error);
