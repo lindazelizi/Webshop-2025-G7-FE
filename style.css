@@ -62,7 +62,7 @@ header {
 }
 
 .header-inner a {
-  text-decoration: none;
+  text-decoration: none !important;
 }
 .header-inner a:hover {
   text-decoration: underline;
@@ -121,7 +121,7 @@ header {
 .header-icons {
   display: flex;
   align-items: center;
-  gap: 25px;
+  gap: 20px;
   white-space: nowrap;
 }
 
@@ -130,10 +130,60 @@ header {
   color: #333;
   text-decoration: none;
   font-size: 0.95em;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 7px 15px;
+  border-radius: 15px;
+}
+.icon-link:hover {
+  background-color: #f3f3f3;
+  border-radius: 15px;
+
 }
 
 .icon-link i {
   margin-right: 5px;
+}
+
+.checkout-button {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background-color: #001e62; 
+  color: white;
+  padding: 12px 15px;
+  border-radius: 12px;
+  box-shadow:  3px 3px 0px #030f24,
+              -3px -3px 0px #ffffff;
+  transition: background-color 0.25s ease-in-out;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+
+.icon-box img {
+  width: 24px;
+  height: 24px;
+}
+
+.text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.text-box .label {
+  font-style: italic;
+  font-weight: 600;
+  color: white;
+}
+
+.text-box #cartBalance {
+  font-weight: bold;
+  color: white;
 }
 
 /* === MAIN === */
@@ -259,7 +309,7 @@ header {
   transform: translateY(-3px);
 }
 
-.product-card button:hover, .quantity-controls button:hover {
+.product-card button:hover, .quantity-controls button:hover,.checkout-button:hover {
   transform: translateY(3px);
   box-shadow:  2px 2px 0px #030f24,
   -2px -2px 0px #ffffff;
