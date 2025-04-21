@@ -12,267 +12,183 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+</head>
 
 <body>
-
   <div class="top-info-message">Billigare eller pengarna tillbaka! Se prisgarantin</div>
-<!-- HEADER -->
-<header>
-  <div class="header-inner">
-    <div class="logo"><a href="index.html"><img src="https://i.postimg.cc/R0617FXx/Untitled-design-1.png"/></a></div>
-
+  
   <!-- HEADER -->
   <header>
     <div class="header-inner">
-      <div class="logo"><a href="index.html" class="logo"><img src="https://i.postimg.cc/R0617FXx/Untitled-design-1.png"/></a></div>
+      <div class="logo"><a href="index.html"><img src="https://i.postimg.cc/R0617FXx/Untitled-design-1.png"/></a></div>
+      
       <div class="search-container">
         <input type="text" placeholder="Sök..." />
         <i class="fas fa-search search-icon"></i>
       </div>
 
       <div class="header-icons">
-        <a href="login.html" class="icon-link">
-          <i class="fas fa-user"></i> Logga in
-        </a>
-
-        <a href="cart.html" class="checkout-button">
-          <div class="icon-box">
-            <img src="https://img.icons8.com/?size=25&id=aF2dnwFMUBL4&format=png&color=000000" alt="box icon" />
-    <div class="header-icons">
-      <a href="#" class="nav-item">
-        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
-          <path d="M24.2 3h-6.97L7.87 15.12h7.98L4 30l22-18.79-8.46-.12L24.19 3Z" fill="currentColor"></path>
-        </svg>
-        <span>Förmåner</span>
-      </a>
-      
-      <a href="login.html" class="nav-item">
-        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
-          <path d="M6 27v-2s0-5 5-5h10c5 0 5 5 5 5v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-          <circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="2"></circle>
-        </svg>
-        <span>Logga in</span>
-      </a>
-      
-      <a href="cart.html" class="checkout-button">
-        <div class="checkout-content">
-          <div class="checkout-display">
-            <div class="checkout-box-wrapper">
-              <div class="checkout-box-container">
-                <div class="box-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="box-icon" fill="none" viewBox="0 0 32 32">
-                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 3.2 24V8l10.7 4.3v16Z"></path>
-                    <path fill="#F7B26A" d="m9.6 24-4-1.6 4 1.6Z"></path>
-                    <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m9.6 24-4-1.6"></path>
-                    <path fill="#F7B26A" d="m8.3 21.2-2.7-1 2.7 1Z"></path>
-                    <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m8.3 21.2-2.7-1"></path>
-                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 28.8 24V8l-15 4.3v16Z"></path>
-                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M28.8 8 18.1 3.8 3.2 8l10.7 4.3L28.8 8Z"></path>
-                    <path fill="#333" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M17.6 27.2 28.8 24V8l-5 1.5-6.2 17.7ZM19 11l9.5-3L19 4v7Z" opacity=".2"></path>
-                  </svg>
-                  <div class="check-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="badge-icon" fill="none" viewBox="0 0 32 32">
-                      <path vector-effect="non-scaling-stroke" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M25 9 14 23l-7-7"></path>
-                    </svg>
-                  </div>
-                </div>
-                <div class="progress-meter">
-                  <div class="meter-fill"></div>
-                </div>
-              </div>
-              <div class="checkout-text">
-                <div class="checkout-header">
-                  <p class="checkout-title">Till kassan</p>
-                  <div class="arrow-icon">
-                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 12 13">
-                      <path vector-effect="non-scaling-stroke" d="m4.2 2.3 4.2 4.2-4.2 4.2" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
-                  </div>
-                </div>
-                <p class="checkout-price" id="cartBalance">0,00 kr</p>
-              </div>
-            </div>
-          </div>
-          <div class="text-box">
-            <div class="label">Till kassan &rsaquo;</div>
-            <div id="cartBalance">0:-</div>
-          </div>
+        <a href="#" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
+            <path d="M24.2 3h-6.97L7.87 15.12h7.98L4 30l22-18.79-8.46-.12L24.19 3Z" fill="currentColor"></path>
+          </svg>
+          <span>Förmåner</span>
         </a>
         
-      </div>
-    </div>
-
-    <div class="header-icons">
-      <a href="#" class="nav-item">
-        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
-          <path d="M24.2 3h-6.97L7.87 15.12h7.98L4 30l22-18.79-8.46-.12L24.19 3Z" fill="currentColor"></path>
-        </svg>
-        <span>Förmåner</span>
-      </a>
-      
-      <a href="login.html" class="nav-item">
-        <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
-          <path d="M6 27v-2s0-5 5-5h10c5 0 5 5 5 5v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
-          <circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="2"></circle>
-        </svg>
-        <span>Logga in</span>
-      </a>
-      
-      <a href="cart.html" class="checkout-button">
-        <div class="checkout-content">
-          <div class="checkout-display">
-            <div class="checkout-box-wrapper">
-              <div class="checkout-box-container">
-                <div class="box-wrapper">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="box-icon" fill="none" viewBox="0 0 32 32">
-                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 3.2 24V8l10.7 4.3v16Z"></path>
-                    <path fill="#F7B26A" d="m9.6 24-4-1.6 4 1.6Z"></path>
-                    <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m9.6 24-4-1.6"></path>
-                    <path fill="#F7B26A" d="m8.3 21.2-2.7-1 2.7 1Z"></path>
-                    <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m8.3 21.2-2.7-1"></path>
-                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 28.8 24V8l-15 4.3v16Z"></path>
-                    <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M28.8 8 18.1 3.8 3.2 8l10.7 4.3L28.8 8Z"></path>
-                    <path fill="#333" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M17.6 27.2 28.8 24V8l-5 1.5-6.2 17.7ZM19 11l9.5-3L19 4v7Z" opacity=".2"></path>
-                  </svg>
-                  <div class="check-badge">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="badge-icon" fill="none" viewBox="0 0 32 32">
-                      <path vector-effect="non-scaling-stroke" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M25 9 14 23l-7-7"></path>
+        <a href="login.html" class="nav-item">
+          <svg xmlns="http://www.w3.org/2000/svg" class="nav-icon" fill="none" viewBox="0 0 32 32">
+            <path d="M6 27v-2s0-5 5-5h10c5 0 5 5 5 5v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+            <circle cx="16" cy="10" r="5" stroke="currentColor" stroke-width="2"></circle>
+          </svg>
+          <span>Logga in</span>
+        </a>
+        
+        <a href="cart.html" class="checkout-button">
+          <div class="checkout-content">
+            <div class="checkout-display">
+              <div class="checkout-box-wrapper">
+                <div class="checkout-box-container">
+                  <div class="box-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="box-icon" fill="none" viewBox="0 0 32 32">
+                      <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 3.2 24V8l10.7 4.3v16Z"></path>
+                      <path fill="#F7B26A" d="m9.6 24-4-1.6 4 1.6Z"></path>
+                      <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m9.6 24-4-1.6"></path>
+                      <path fill="#F7B26A" d="m8.3 21.2-2.7-1 2.7 1Z"></path>
+                      <path stroke="#333" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="1.5" d="m8.3 21.2-2.7-1"></path>
+                      <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M13.9 28.2 28.8 24V8l-15 4.3v16Z"></path>
+                      <path fill="#F7B26A" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M28.8 8 18.1 3.8 3.2 8l10.7 4.3L28.8 8Z"></path>
+                      <path fill="#333" stroke="#333" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M17.6 27.2 28.8 24V8l-5 1.5-6.2 17.7ZM19 11l9.5-3L19 4v7Z" opacity=".2"></path>
                     </svg>
+                    <div class="check-badge">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="badge-icon" fill="none" viewBox="0 0 32 32">
+                        <path vector-effect="non-scaling-stroke" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M25 9 14 23l-7-7"></path>
+                      </svg>
+                    </div>
+                  </div>
+                  <div class="progress-meter">
+                    <div class="meter-fill"></div>
                   </div>
                 </div>
-                <div class="progress-meter">
-                  <div class="meter-fill"></div>
-                </div>
-              </div>
-              <div class="checkout-text">
-                <div class="checkout-header">
-                  <p class="checkout-title">Till kassan</p>
-                  <div class="arrow-icon">
-                    <svg fill="none" xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 12 13">
-                      <path vector-effect="non-scaling-stroke" d="m4.2 2.3 4.2 4.2-4.2 4.2" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
-                    </svg>
+                <div class="checkout-text">
+                  <div class="checkout-header">
+                    <p class="checkout-title">Till kassan</p>
+                    <div class="arrow-icon">
+                      <svg fill="none" xmlns="http://www.w3.org/2000/svg" height="100%" viewBox="0 0 12 13">
+                        <path vector-effect="non-scaling-stroke" d="m4.2 2.3 4.2 4.2-4.2 4.2" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
                   </div>
+                  <p class="checkout-price" id="cartBalance">0,00 kr</p>
                 </div>
-                <p class="checkout-price" id="cartBalance">0,00 kr</p>
               </div>
             </div>
           </div>
-        </div>
-      </a>
+        </a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
 
-
-
-  <body>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-      <div class="hero-container">
-        <div class="hero-text">
-          <p class="tagline">A DIFFERENT KIND OF FOOD STORE</p>
-          <h1>VI GER MAT EN NY CHANS.<br>DU FÅR MER FÖR PENGARNA.</h1>
-      
-          <ul>
-            <li>🌍 Tusentals kunder handlar smart hos oss</li>
-            <li>💰 Spara upp till 80% på matvaror</li>
-            <li>🛒 Nya fynd varje dag</li>
-          </ul>
-      
-          <a href="#" class="cta-button">Varför handla hos oss?</a>
-        </div>
-      
-        <div class="hero-image">
-          <img src="https://i.postimg.cc/k5GCfrbm/Chat-GPT-Image-Apr-19-2025-11-57-55-PM.png" alt="Hakim Livs Matlåda" />
-        </div>
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="hero-container">
+      <div class="hero-text">
+        <p class="tagline">A DIFFERENT KIND OF FOOD STORE</p>
+        <h1>VI GER MAT EN NY CHANS.<br>DU FÅR MER FÖR PENGARNA.</h1>
+    
+        <ul>
+          <li>🌍 Tusentals kunder handlar smart hos oss</li>
+          <li>💰 Spara upp till 80% på matvaror</li>
+          <li>🛒 Nya fynd varje dag</li>
+        </ul>
+    
+        <a href="#" class="cta-button">Varför handla hos oss?</a>
       </div>
-      
-  
-      
-      <div id="addProductContainer"></div>
-
-      <div class="main-container">
-        <aside class="category-sidebar">
-          <h2>REKOMMENDERAT</h2>
-          <ul class="category-menu" id="recommended">
-            <li><a href="#"><span class="material-symbols-outlined">favorite</span>Dina produkter</a></li>
-            <li><a href="#"><span class="material-symbols-outlined">star</span>Aktuell just nu</a></li>
-            <li><a href="#" data-category="Alla"><span class="material-symbols-outlined">grid_view</span>Alla produkter</a></li>
-          </ul>
-          <h2>KATEGORIER</h2>
-          <ul class="category-menu" id="categories">
-            <li><a href="#" data-category="Dryck"><span class="material-symbols-outlined">water_full</span> Dryck</a></li>
-            <li><a href="#" data-category="Grönsaker"><span class="material-symbols-outlined">nature</span> Grönsaker</a></li>
-            <li><a href="#" data-category="Örter"><span class="material-symbols-outlined">psychiatry</span> Örter</a></li>
-            <li><a href="#" data-category="Frukter"><span class="material-symbols-outlined">nutrition</span> Frukter</a></li>
-            <li><a href="#" data-category="Godis, snacks & glass"><span class="material-symbols-outlined">cookie</span> Godis, snacks & glass</a></li>
-          </ul>
-          <h2>VARUMÄRKEN</h2>
-          <ul class="category-menu">
-            <li><a href="#" data-category="Alla">Alla varumärken</a></li>
-          </ul>
-          <h2>BEHÖVER DU HJÄLP?</h2>
-          <ul class="category-menu">
-            <li><a href="#">Kundservice</a></li>
-            <li><a href="#">Så funkar Hakim Livs</a></li>
-            <li><a href="#">Hakim Livs Stories</a></li>
-          </ul>
-        </aside>
-
-        <div id="products"></div>
+    
+      <div class="hero-image">
+        <img src="https://i.postimg.cc/k5GCfrbm/Chat-GPT-Image-Apr-19-2025-11-57-55-PM.png" alt="Hakim Livs Matlåda" />
       </div>
-      
-    </main>
+    </div>
+    
+    <div id="addProductContainer"></div>
 
+    <div class="main-container">
+      <aside class="category-sidebar">
+        <h2>REKOMMENDERAT</h2>
+        <ul class="category-menu" id="recommended">
+          <li><a href="#"><span class="material-symbols-outlined">favorite</span>Dina produkter</a></li>
+          <li><a href="#"><span class="material-symbols-outlined">star</span>Aktuell just nu</a></li>
+          <li><a href="#" data-category="Alla"><span class="material-symbols-outlined">grid_view</span>Alla produkter</a></li>
+        </ul>
+        <h2>KATEGORIER</h2>
+        <ul class="category-menu" id="categories">
+          <li><a href="#" data-category="Dryck"><span class="material-symbols-outlined">water_full</span> Dryck</a></li>
+          <li><a href="#" data-category="Grönsaker"><span class="material-symbols-outlined">nature</span> Grönsaker</a></li>
+          <li><a href="#" data-category="Örter"><span class="material-symbols-outlined">psychiatry</span> Örter</a></li>
+          <li><a href="#" data-category="Frukter"><span class="material-symbols-outlined">nutrition</span> Frukter</a></li>
+          <li><a href="#" data-category="Godis, snacks & glass"><span class="material-symbols-outlined">cookie</span> Godis, snacks & glass</a></li>
+        </ul>
+        <h2>VARUMÄRKEN</h2>
+        <ul class="category-menu">
+          <li><a href="#" data-category="Alla">Alla varumärken</a></li>
+        </ul>
+        <h2>BEHÖVER DU HJÄLP?</h2>
+        <ul class="category-menu">
+          <li><a href="#">Kundservice</a></li>
+          <li><a href="#">Så funkar Hakim Livs</a></li>
+          <li><a href="#">Hakim Livs Stories</a></li>
+        </ul>
+      </aside>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="footer-container">
+      <div id="products"></div>
+    </div>
+  </main>
 
-        <!-- LÄNKARNA ÄR TOMMA-->
-        <div class="footer-section">
-          <h3>Hakim Livs made simple</h3>
-          <a href="#">Så funkar Hakim Livs</a>
-          <a href="#">Klimatpåverkan</a>
-          <a href="#">Leverans &amp; frakt</a>
-          <a href="#">Vanliga frågor och svar</a>
-        </div>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-container">
 
-        <div class="footer-section">
-          <h3>The fine print</h3>
-          <a href="#">Cookie Policy</a>
-          <a href="#">Integritetspolicy</a>
-          <a href="#">Allmänna villkor</a>
-          <a href="#">Cookie-inställningar</a>
-        </div>
-
-        <div class="footer-section">
-          <h3>Join Hakim Livs</h3>
-          <a href="#">Bli leverantör</a>
-          <a href="#">Jobba hos oss</a>
-          <a href="#">Pressmeddelanden</a>
-          <a href="#">Nyhetsbrev</a>
-        </div>
+      <!-- LÄNKARNA ÄR TOMMA-->
+      <div class="footer-section">
+        <h3>Hakim Livs made simple</h3>
+        <a href="#">Så funkar Hakim Livs</a>
+        <a href="#">Klimatpåverkan</a>
+        <a href="#">Leverans &amp; frakt</a>
+        <a href="#">Vanliga frågor och svar</a>
       </div>
 
-      <div class="footer-icon">
-        <img src="https://cdn-icons-png.freepik.com/512/3095/3095583.png" alt="Kontakt" width="50px" height="50px"
-          style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
-        <a href="#">Kontakt</a>
-        <img src="https://cdn-icons-png.freepik.com/512/11675/11675289.png" alt="Kundservice" width="50px" height="50px"
-          style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
-        <a href="#">Kundservice</a>
+      <div class="footer-section">
+        <h3>The fine print</h3>
+        <a href="#">Cookie Policy</a>
+        <a href="#">Integritetspolicy</a>
+        <a href="#">Allmänna villkor</a>
+        <a href="#">Cookie-inställningar</a>
       </div>
 
-      <div class="footer-bottom">
-        <p>© 2025 Hakim Livs. Alla rättigheter förbehållna.</p>
+      <div class="footer-section">
+        <h3>Join Hakim Livs</h3>
+        <a href="#">Bli leverantör</a>
+        <a href="#">Jobba hos oss</a>
+        <a href="#">Pressmeddelanden</a>
+        <a href="#">Nyhetsbrev</a>
       </div>
+    </div>
 
-    </footer>
-    <!-- PAGE-SPECIFIC JAVASCRIPT -->
-    <script type="module" src="./src/scripts/index.js"></script>
-  </body>
+    <div class="footer-icon">
+      <img src="https://cdn-icons-png.freepik.com/512/3095/3095583.png" alt="Kontakt" width="50px" height="50px"
+        style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
+      <a href="#">Kontakt</a>
+      <img src="https://cdn-icons-png.freepik.com/512/11675/11675289.png" alt="Kundservice" width="50px" height="50px"
+        style="filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(251deg) brightness(105%) contrast(103%);">
+      <a href="#">Kundservice</a>
+    </div>
 
+    <div class="footer-bottom">
+      <p>© 2025 Hakim Livs. Alla rättigheter förbehållna.</p>
+    </div>
+
+  </footer>
+
+  <!-- PAGE-SPECIFIC JAVASCRIPT -->
+  <script type="module" src="./src/scripts/index.js"></script>
+</body>
 </html>
