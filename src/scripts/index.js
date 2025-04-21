@@ -118,9 +118,8 @@ function createAdminProductCard(product) {
     <p class="price">${product.price.toFixed(0)}:-</p>
     <h3>${product.name}</h3>
     <p>${productStock}</p>
-    <button class="view-product-btn">Visa produkt</button>
     <button class="edit-product-btn">Redigera produkt</button>
-    <button class="add-to-cart-btn">Lägg i varukorg</button>
+    <button class="add-to-cart-btn">Köp</button>
   `;
 
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
@@ -129,7 +128,8 @@ function createAdminProductCard(product) {
   element.querySelector(".edit-product-btn").addEventListener("click", () => {
     editProduct(product);
   });
-  element.querySelector(".view-product-btn").addEventListener("click", () => {
+
+  element.addEventListener("click", () => {
     window.location.href = `product.html?id=${product._id}`;
   });
 
@@ -145,14 +145,14 @@ function createProductCard(product) {
     <p class="price">${product.price.toFixed(0)}:-</p>    
     <h3>${product.name}</h3>
     <p>${productStock}</p>
-    <button class="view-product-btn">Visa produkt</button>
-    <button class="add-to-cart-btn">Lägg i varukorg</button>
+    <button class="add-to-cart-btn">Köp</button>
   `;
 
   element.querySelector(".add-to-cart-btn").addEventListener("click", () => {
     addToCart(product);
   });
-  element.querySelector(".view-product-btn").addEventListener("click", () => {
+
+  element.addEventListener("click", () => {
     window.location.href = `product.html?id=${product._id}`;
   });
 

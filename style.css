@@ -229,19 +229,31 @@ header {
   text-align: center;
   background-color: white;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.product-card:hover, .product-card:focus {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+}
+
+.product-card button:hover, .quantity-controls button:hover {
+  transform: translateY(3px);
+  box-shadow:  2px 2px 0px #030f24,
+  -2px -2px 0px #ffffff;
 }
 
 .product-card button {
   background: #1347a1;
   color: white;
   border: none;
+  width: 80%;
   padding: 0.5rem 1rem;
   cursor: pointer;
   border-radius: 5px;
-  margin-bottom: 5px;
-  margin-top: 5px;
+  margin-top: 15px ;
   box-shadow:  3px 3px 0px #030f24,
-             -3px -3px 0px #ffffff;
+              -3px -3px 0px #ffffff;
 }
 
 .prod-card-img {
@@ -789,7 +801,7 @@ button:hover {
 .category-menu li a:hover {
   background-color: #ffffffd7;
   width: 100%;
-
+  transition: none;
 }
 
 #recommended a {
